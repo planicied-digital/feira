@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TipoValidade {
+  DATA_DEFINIDA
+  ENQUANTO_DURAR_ESTOQUE
+}
+
+enum UnidadePadrao {
+  KG
+  L
+  UN
+}
+
+enum StatusImportacao {
+  PROCESSADO
+  ERRO
+}
+
+enum StatusMatch {
+  PENDENTE_REVISAO
+  AUTO_CONFIRMADO
+  REVISADO_CONFIRMADO
+  REVISADO_REJEITADO
+}
+
+enum StatusSugestaoFusao {
+  PENDENTE
+  ACEITA
+  REJEITADA
+}
+
+model Loja {
+  id              String   @id @default(cuid())
+  nomeRaw         String   @map("nome_raw")
+  nomeNormalizado String   @map("nome_normalizado")
+  rede            String?
+  enderecoRaw     String?  @map("endereco_raw")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  folhetos Folheto[]
+  precos   Preco[]
+
+  @@index([nomeNormalizado])
+  @@map("lojas")
+}
+
+model Folheto {
+  id             String           @id @default(cuid())
+  lojaId         String           @map("loja_id")
+  arquivoOrigem  String           @map("arquivo_origem")
+  tipoValidade   TipoValidade     @map("tipo_validade")
+  validadeInicio DateTime?        @map("validade_inicio") @db.Date
+  validadeFim    DateTime?        @map("validade_fim") @db.Date
+  extraidoEm     DateTime         @map("extraido_em")
+  importadoEm    DateTime         @default(now()) @map("importado_em")
+  rawJson        Json             @map("raw_json")
+  status         StatusImportacao @default(PROCESSADO)
+
+  loja   Loja          @relation(fields: [lojaId], references: [id])
+  itens  ItemFolheto[]
+  precos Preco[]
+
+  @@index([lojaId])
+  @@map("folhetos")
+}
+
+model ItemFolheto {
+  id        String @id @default(cuid())
+  folhetoId String @map("folheto_id")
+
+  nomeRaw               String        @map("nome_raw")
+  nomeNormalizado        String       @map("nome_normalizado")
+  marcaRaw               String?      @map("marca_raw")
+  categoriaSugerida      String?      @map("categoria_sugerida")
+  quantidade             Decimal?     @db.Decimal(10, 3)
+  unidade                String?
+  preco                  Decimal      @db.Decimal(10, 2)
+  precoOriginal          Decimal?     @map("preco_original") @db.Decimal(10, 2)
+  unidadePadrao          UnidadePadrao @map("unidade_padrao")
+  precoPorUnidadePadrao  Decimal      @map("preco_por_unidade_padrao") @db.Decimal(12, 4)
+  confiancaOcr           Float?       @map("confianca_ocr")
+
+  tipoValidadeItem   TipoValidade? @map("tipo_validade_item")
+  validadeInicioItem DateTime?     @map("validade_inicio_item") @db.Date
+  validadeFimItem    DateTime?     @map("validade_fim_item") @db.Date
+
+  produtoCanonicoId String?     @map("produto_canonico_id")
+  statusMatch       StatusMatch @default(PENDENTE_REVISAO) @map("status_match")
+  scoreSimilaridade Float?      @map("score_similaridade")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  folheto         Folheto          @relation(fields: [folhetoId], references: [id])
+  produtoCanonico ProdutoCanonico? @relation(fields: [produtoCanonicoId], references: [id])
+  precoVinculado  Preco?
+
+  @@index([folhetoId])
+  @@index([produtoCanonicoId])
+  @@index([statusMatch])
+  @@map("itens_folheto")
+}
+
+model Categoria {
+  id    String  @id @default(cuid())
+  nome  String
+  slug  String  @unique
+  icone String?
+
+  produtos ProdutoCanonico[]
+
+  @@map("categorias")
+}
+
+model ProdutoCanonico {
+  id              String        @id @default(cuid())
+  nomeCanonico    String        @map("nome_canonico")
+  nomeNormalizado String        @map("nome_normalizado")
+  categoriaId     String        @map("categoria_id")
+  marca           String?
+  unidadePadrao   UnidadePadrao @map("unidade_padrao")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+
+  categoria Categoria     @relation(fields: [categoriaId], references: [id])
+  itens     ItemFolheto[]
+  precos    Preco[]
+
+  sugestoesComoOrigem  SugestaoFusaoProduto[] @relation("origem")
+  sugestoesComoDestino SugestaoFusaoProduto[] @relation("destino")
+
+  @@index([categoriaId, unidadePadrao])
+  @@map("produtos_canonicos")
+}
+
+model Preco {
+  id                String @id @default(cuid())
+  produtoCanonicoId String @map("produto_canonico_id")
+  lojaId            String @map("loja_id")
+  folhetoId         String @map("folheto_id")
+  itemFolhetoId     String @unique @map("item_folheto_id")
+
+  preco                 Decimal       @db.Decimal(10, 2)
+  precoPorUnidadePadrao Decimal       @map("preco_por_unidade_padrao") @db.Decimal(12, 4)
+  unidadePadrao         UnidadePadrao @map("unidade_padrao")
+
+  tipoValidade   TipoValidade @map("tipo_validade")
+  validadeInicio DateTime?    @map("validade_inicio") @db.Date
+  validadeFim    DateTime?    @map("validade_fim") @db.Date
+  extraidoEm     DateTime     @map("extraido_em")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  produtoCanonico ProdutoCanonico @relation(fields: [produtoCanonicoId], references: [id])
+  loja            Loja            @relation(fields: [lojaId], references: [id])
+  folheto         Folheto         @relation(fields: [folhetoId], references: [id])
+  itemFolheto     ItemFolheto     @relation(fields: [itemFolhetoId], references: [id])
+
+  @@index([produtoCanonicoId, precoPorUnidadePadrao])
+  @@index([tipoValidade, validadeFim])
+  @@map("precos")
+}
+
+model SugestaoFusaoProduto {
+  id               String              @id @default(cuid())
+  produtoOrigemId  String              @map("produto_origem_id")
+  produtoDestinoId String              @map("produto_destino_id")
+  score            Float
+  status           StatusSugestaoFusao @default(PENDENTE)
+  createdAt        DateTime            @default(now()) @map("created_at")
+  resolvidoEm      DateTime?           @map("resolvido_em")
+
+  produtoOrigem  ProdutoCanonico @relation("origem", fields: [produtoOrigemId], references: [id])
+  produtoDestino ProdutoCanonico @relation("destino", fields: [produtoDestinoId], references: [id])
+
+  @@index([status])
+  @@map("sugestoes_fusao_produto")
+}

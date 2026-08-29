@@ -1,0 +1,14 @@
+# Overlay opcional — adiciona o gateway fixo em http://localhost:8090/sistemas/feira,
+# mesmo padrão usado nos outros projetos locais (um app por http://localhost:8090/sistemas/<app>).
+# Uso: docker compose -f docker-compose.yml -f docker-compose.local-proxy.yml up -d --build
+services:
+  local-proxy:
+    image: nginx:1.27-alpine
+    container_name: feira_local_proxy
+    restart: unless-stopped
+    depends_on:
+      - frontend
+    ports:
+      - "${GATEWAY_PORT:-8090}:80"
+    volumes:
+      - ./nginx.local-proxy.conf:/etc/nginx/conf.d/default.conf:ro

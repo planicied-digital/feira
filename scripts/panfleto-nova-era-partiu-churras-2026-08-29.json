@@ -1,0 +1,40 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-29 at 00.58.54 a 00.59.07 (12 paginas)",
+  "estabelecimento": {
+    "nome_raw": "Nova Era",
+    "endereco_raw": null,
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "data_definida",
+    "inicio": "2026-08-28",
+    "fim": "2026-08-30"
+  },
+  "extraido_em": "2026-08-29T21:30:00-04:00",
+  "itens": [
+    { "nome_raw": "Whisky Johnnie Walker Red Label 1L", "marca": "Johnnie Walker", "categoria_sugerida": "bebidas", "quantidade": 1, "unidade": "l", "preco": 119.95, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cabaré Ice Limão 275ml", "marca": "Cabaré", "categoria_sugerida": "bebidas", "quantidade": 275, "unidade": "ml", "preco": 4.95, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Copo Americano Nadir 190ml", "marca": "Nadir", "categoria_sugerida": "utilidades domesticas", "quantidade": 1, "unidade": "un", "preco": 1.45, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Aperitivo Bitter Campari 748ml", "marca": "Campari", "categoria_sugerida": "bebidas", "quantidade": 748, "unidade": "ml", "preco": 52.95, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Cerveja Lager Heineken Premium 600ml", "marca": "Heineken", "categoria_sugerida": "cerveja", "quantidade": 600, "unidade": "ml", "preco": 12.65, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cerveja Budweiser Long Neck 330ml", "marca": "Budweiser", "categoria_sugerida": "cerveja", "quantidade": 330, "unidade": "ml", "preco": 5.85, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Energético Monster Sabores Lata 473ml", "marca": "Monster", "categoria_sugerida": "bebidas", "quantidade": 473, "unidade": "ml", "preco": 9.95, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Cerv. Praya Long Neck 330ml", "marca": "Praya", "categoria_sugerida": "cerveja", "quantidade": 330, "unidade": "ml", "preco": 6.25, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Beb Mista Jack Daniels 269ml Coca Cola 5%", "marca": "Jack Daniel's", "categoria_sugerida": "bebidas", "quantidade": 269, "unidade": "ml", "preco": 8.55, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Gin Rocks 1L Sabores 38,5%", "marca": "Rock's", "categoria_sugerida": "bebidas", "quantidade": 1, "unidade": "l", "preco": 35.95, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Cerveja Heineken Long Neck Shot 250ml", "marca": "Heineken", "categoria_sugerida": "cerveja", "quantidade": 250, "unidade": "ml", "preco": 4.95, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Cerveja 0.0% Álcool Heineken Puro Malte Lager 330ml", "marca": "Heineken", "categoria_sugerida": "cerveja", "quantidade": 330, "unidade": "ml", "preco": 6.25, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Batata Chips Pringles Original 104g", "marca": "Pringles", "categoria_sugerida": "mercearia", "quantidade": 104, "unidade": "g", "preco": 8.85, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Farofa Uarini Sabor do Norte 700g", "marca": "Uarini", "categoria_sugerida": "mercearia", "quantidade": 700, "unidade": "g", "preco": 24.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Linguiça Suína C/Bacon Seara 600g", "marca": "Seara", "categoria_sugerida": "carnes", "quantidade": 600, "unidade": "g", "preco": 16.45, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Linguiça Suína C/Chimichurri Seara 600g", "marca": "Seara", "categoria_sugerida": "carnes", "quantidade": 600, "unidade": "g", "preco": 16.45, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Linguiça Suína Seara 600g", "marca": "Seara", "categoria_sugerida": "carnes", "quantidade": 600, "unidade": "g", "preco": 16.45, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Salame Seara Gourmet 100g Pepperoni Fatiado", "marca": "Seara", "categoria_sugerida": "frios", "quantidade": 100, "unidade": "g", "preco": 11.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Filé Mignon Bovino Resf.", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 64.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Picanha Bovina Resf.", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 79.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Maminha Bovina Resf.", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 46.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Contra Filé Bovino Resf.", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 48.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Fraldão Bovino Resf.", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 34.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Alcatra Bovina Resf.", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 45.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 }
+  ]
+}

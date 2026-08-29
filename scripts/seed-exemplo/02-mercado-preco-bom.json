@@ -1,0 +1,40 @@
+{
+  "arquivo_origem": "folheto_mercado_precobom_2026-08-29.jpg",
+  "estabelecimento": {
+    "nome_raw": "Mercado Preço Bom",
+    "endereco_raw": null,
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "enquanto_durar_estoque",
+    "inicio": null,
+    "fim": null
+  },
+  "extraido_em": "2026-08-29T15:00:00-04:00",
+  "itens": [
+    {
+      "nome_raw": "Arroz Tio Joao Tipo 1 5kg Oferta",
+      "marca": "Tio João",
+      "categoria_sugerida": "arroz",
+      "quantidade": 5,
+      "unidade": "kg",
+      "preco": 23.50,
+      "preco_original": null,
+      "unidade_padrao": "kg",
+      "preco_por_unidade_padrao": 4.70,
+      "confianca_ocr": 0.92
+    },
+    {
+      "nome_raw": "Arroz Camil Tipo 1 5kg",
+      "marca": "Camil",
+      "categoria_sugerida": "arroz",
+      "quantidade": 5,
+      "unidade": "kg",
+      "preco": 22.90,
+      "preco_original": null,
+      "unidade_padrao": "kg",
+      "preco_por_unidade_padrao": 4.58,
+      "confianca_ocr": 0.9
+    }
+  ]
+}
