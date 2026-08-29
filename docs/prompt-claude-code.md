@@ -62,7 +62,7 @@ navegar e descobrir ofertas mesmo sem saber exatamente o que procurar (ex.:
 Categorias sugeridas para começar (ajuste/complete se fizer sentido, mas
 mantenha a ideia de uma lista fixa e curta, não texto livre):
 
-- Hortifrúti (frutas, verduras, legumes)
+- Hortifruti (frutas, verduras, legumes)
 - Carnes, Aves e Peixes
 - Laticínios e Frios (leite, queijo, iogurte, presunto etc.)
 - Padaria
