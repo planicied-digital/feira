@@ -1,7 +1,9 @@
 import type { TipoValidade } from "../lib/api";
 import { diasDesde, formatarDataCurta, tempoRelativo } from "../lib/tempoRelativo";
 
-const DIAS_PARA_ALERTA_ENVELHECIMENTO = 14;
+// Some da listagem sozinho com 3 dias sem confirmação (ver DIAS_LIMITE_ENQUANTO_ESTOQUE no
+// backend) — o alerta acende 1 dia antes disso, como aviso de que está prestes a sumir.
+const DIAS_PARA_ALERTA_ENVELHECIMENTO = 1;
 
 interface SeloValidadeProps {
   tipoValidade: TipoValidade;
