@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { BuscaInput } from "../components/BuscaInput";
 import { CategoriaGrid } from "../components/CategoriaGrid";
 import { LojaList } from "../components/LojaList";
@@ -19,6 +19,12 @@ export function Busca() {
 
       {buscaVazia && (
         <>
+          <Link
+            to="/lista-compras"
+            className="mt-4 block rounded-lg bg-blue-50 p-3 text-sm font-medium text-blue-700"
+          >
+            🛒 Montar lista de compras e comparar mercados
+          </Link>
           <CategoriaGrid />
           <LojaList />
         </>
