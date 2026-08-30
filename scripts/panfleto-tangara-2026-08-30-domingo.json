@@ -1,0 +1,52 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-30 at 07.13.43.jpeg + 07.13.44.jpeg + 07.13.44 (1).jpeg",
+  "estabelecimento": {
+    "nome_raw": "Tangará Supermercado",
+    "endereco_raw": "Rua Benjamin Pereira de Melo, 1781, Senador Hélio Campos, Boa Vista-RR",
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "data_definida",
+    "inicio": "2026-08-30",
+    "fim": "2026-08-30"
+  },
+  "extraido_em": "2026-08-30T13:20:00-04:00",
+  "itens": [
+    { "nome_raw": "Bisteca Dianteira KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 29.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Alcatra KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 44.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97 },
+    { "nome_raw": "Patinho Dianteiro KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 38.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Costela Mindinha KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 23.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Bisteca Traseira KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 33.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Maminha KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 41.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Chã de Fora KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 38.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Lagarto Bovino KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 37.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Linguiça Fina Aurora KG", "marca": "Aurora", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 26.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Carré Suíno KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 15.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Limão Taiti KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 5.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97 },
+    { "nome_raw": "Inhame Paulista KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 10.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Calabresa Seara KG", "marca": "Seara", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 21.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Batata Doce Roxa KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 5.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97 },
+    { "nome_raw": "Macaxeira KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 3.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97 },
+    { "nome_raw": "Cartela de Ovos 30UND", "marca": null, "categoria_sugerida": "ovos", "quantidade": 30, "unidade": "un", "preco": 13.99, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Pimenta de Cheiro KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 17.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Tangerina Morgote KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 10.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Abacaxi UND", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "un", "preco": 5.99, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Creme de Leite Triângulo 200g", "marca": "Triângulo", "categoria_sugerida": "laticinios", "quantidade": 200, "unidade": "g", "preco": 2.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Feijão Preto Dona Dê 1kg", "marca": "Dona Dê", "categoria_sugerida": "feijao", "quantidade": 1, "unidade": "kg", "preco": 6.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Arroz Prato Chic 1kg", "marca": "Prato Chic", "categoria_sugerida": "arroz", "quantidade": 1, "unidade": "kg", "preco": 3.89, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Farinha Branca Dona Dê 1kg", "marca": "Dona Dê", "categoria_sugerida": "farinha", "quantidade": 1, "unidade": "kg", "preco": 4.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Milho Verde Olé Lata 170g", "marca": "Olé", "categoria_sugerida": "mercearia", "quantidade": 170, "unidade": "g", "preco": 3.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Maionese Fugini 180g", "marca": "Fugini", "categoria_sugerida": "mercearia", "quantidade": 180, "unidade": "g", "preco": 1.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Baré 2L", "marca": "Baré", "categoria_sugerida": "bebidas", "quantidade": 2, "unidade": "l", "preco": 4.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cerveja Antarctica Subzero 269ml", "marca": "Antarctica", "categoria_sugerida": "cerveja", "quantidade": 269, "unidade": "ml", "preco": 2.79, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cerveja Skol Pilsen 269ml", "marca": "Skol", "categoria_sugerida": "cerveja", "quantidade": 269, "unidade": "ml", "preco": 2.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Pepsi 2L", "marca": "Pepsi", "categoria_sugerida": "bebidas", "quantidade": 2, "unidade": "l", "preco": 7.49, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Red Bull 250ml", "marca": "Red Bull", "categoria_sugerida": "bebidas", "quantidade": 250, "unidade": "ml", "preco": 8.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Vodka Skarloff 965ml", "marca": "Skarloff", "categoria_sugerida": "bebidas", "quantidade": 965, "unidade": "ml", "preco": 17.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Vinho Tinto Suave Pérgola 1L", "marca": "Pérgola", "categoria_sugerida": "bebidas", "quantidade": 1, "unidade": "l", "preco": 31.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cerveja Itaipava 269ml", "marca": "Itaipava", "categoria_sugerida": "cerveja", "quantidade": 269, "unidade": "ml", "preco": 2.49, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cerveja Spaten Long Neck 330ml", "marca": "Spaten", "categoria_sugerida": "cerveja", "quantidade": 330, "unidade": "ml", "preco": 5.49, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cerveja Schin 269ml", "marca": "Schin", "categoria_sugerida": "cerveja", "quantidade": 269, "unidade": "ml", "preco": 2.49, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cerveja Budweiser 330ml", "marca": "Budweiser", "categoria_sugerida": "cerveja", "quantidade": 330, "unidade": "ml", "preco": 6.49, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 }
+  ]
+}
