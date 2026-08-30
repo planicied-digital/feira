@@ -47,6 +47,10 @@ services:
     restart: unless-stopped
     environment:
       BACKEND_INTERNAL_URL: http://backend:3333
+      # Hosts extras liberados no dev server do Vite (proteção contra DNS rebinding) — necessário
+      # quando um proxy reverso externo (ex.: domínio da VPS) repassa o Host original. Ver
+      # vite.config.ts. Vazio por padrão: localhost (uso local) já é sempre permitido.
+      VITE_ALLOWED_HOSTS: ${VITE_ALLOWED_HOSTS:-}
     ports:
       - "5173:5173"
     volumes:
