@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { EnderecosLoja } from "../components/EnderecosLoja";
 import { PromocaoLojaCard } from "../components/PromocaoLojaCard";
 import { listarLojas, listarPromocoesPorLoja, type Loja, type PromocaoLoja } from "../lib/api";
 
@@ -25,8 +26,8 @@ export function LojaPagina() {
       <Link to="/" className="text-sm text-emerald-700">
         ← voltar
       </Link>
-      <h1 className="mt-2 text-lg font-bold text-gray-900">🏪 {loja?.nomeRaw ?? "Mercado"}</h1>
-      {loja?.enderecoRaw && <p className="mb-4 text-xs text-gray-500">{loja.enderecoRaw}</p>}
+      <h1 className="mt-2 mb-2 text-lg font-bold text-gray-900">🏪 {loja?.nomeRaw ?? "Mercado"}</h1>
+      {loja?.enderecoRaw && <EnderecosLoja enderecoRaw={loja.enderecoRaw} />}
 
       {carregando && <p className="mt-4 text-sm text-gray-500">Carregando...</p>}
       {!carregando && promocoes.length === 0 && (
