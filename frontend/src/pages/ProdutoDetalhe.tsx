@@ -23,9 +23,13 @@ export function ProdutoDetalhe() {
       <Link to="/" className="text-sm text-emerald-700">
         ← voltar para a busca
       </Link>
-      <h1 className="mt-2 mb-4 text-lg font-bold text-gray-900">Histórico de preços</h1>
+      <h1 className="mt-2 mb-4 text-lg font-bold text-gray-900">Onde encontrar</h1>
 
       {carregando && <p className="text-sm text-gray-500">Carregando...</p>}
+
+      {!carregando && historico.length === 0 && (
+        <p className="text-sm text-gray-500">Nenhuma oferta ativa no momento para este produto.</p>
+      )}
 
       <ul className="space-y-2">
         {historico.map((preco) => (
