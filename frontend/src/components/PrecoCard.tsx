@@ -19,8 +19,8 @@ export function PrecoCard({ preco, unidadePadrao, ehMaisBarato }: PrecoCardProps
     >
       <div>
         <p className="font-semibold text-gray-900">{preco.loja.nomeRaw}</p>
-        <p className="text-lg font-bold text-gray-900">{formatarPrecoPorUnidade(preco.precoPorUnidadePadrao, unidadePadrao)}</p>
-        <p className="text-xs text-gray-500">{formatarMoeda(preco.preco)} no total</p>
+        <p className="text-lg font-bold text-gray-900">{formatarMoeda(preco.preco)}</p>
+        <p className="text-xs text-gray-500">{formatarPrecoPorUnidade(preco.precoPorUnidadePadrao, unidadePadrao)}</p>
         {ehMaisBarato && (
           <span className="mt-1 inline-block rounded bg-green-100 px-1.5 py-0.5 text-[11px] font-medium text-green-700">
             mais barato
