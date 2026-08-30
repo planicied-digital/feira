@@ -62,11 +62,13 @@ export function SeloValidade({ tipoValidade, validadeFim, extraidoEm }: SeloVali
         Enquanto durar o estoque
       </span>
       <span className="text-[11px] text-gray-500">atualizado {tempoRelativo(extraidoEm)}</span>
-      {envelhecido && (
+      {envelhecido ? (
         <span className="inline-flex items-center gap-1 text-[11px] font-medium text-amber-700">
           <IconeAlerta />
-          confirme antes de ir ao mercado
+          pode já ter acabado — confirme com a loja antes de ir
         </span>
+      ) : (
+        <span className="text-[11px] text-gray-500">recomendamos confirmar disponibilidade com a loja</span>
       )}
     </div>
   );
