@@ -1,0 +1,37 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-30 at 07.57.09.jpeg + 07.57.10.jpeg",
+  "estabelecimento": {
+    "nome_raw": "Peixaria Vitória 2",
+    "endereco_raw": "Av. Felinto Barbosa Monteiro, 834 - Pintolândia (Próximo a RS Veículos), Boa Vista-RR",
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "enquanto_durar_estoque",
+    "inicio": null,
+    "fim": null
+  },
+  "extraido_em": "2026-08-30T13:25:00-04:00",
+  "itens": [
+    { "nome_raw": "Cheiro Verde", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": null, "unidade": null, "preco": 2.00, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.9 },
+    { "nome_raw": "Chicória", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": null, "unidade": null, "preco": 2.00, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.9 },
+    { "nome_raw": "Tomate KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 12.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cebola KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 9.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Limão KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 6.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Farinha Amarela Litro", "marca": null, "categoria_sugerida": "farinha", "quantidade": 1, "unidade": "l", "preco": 11.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Farinha Branca Litro", "marca": null, "categoria_sugerida": "farinha", "quantidade": 1, "unidade": "l", "preco": 9.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Farinha de Tapioca Litro", "marca": null, "categoria_sugerida": "farinha", "quantidade": 1, "unidade": "l", "preco": 7.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Carvão Sacola", "marca": null, "categoria_sugerida": "carvao", "quantidade": null, "unidade": null, "preco": 6.99, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.9 },
+    { "nome_raw": "Galinha Pé Seco", "marca": null, "categoria_sugerida": "frango", "quantidade": null, "unidade": null, "preco": 31.99, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.6 },
+    { "nome_raw": "Feijão Verde Litro", "marca": null, "categoria_sugerida": "verdura", "quantidade": 1, "unidade": "l", "preco": 19.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Açaí Litro", "marca": null, "categoria_sugerida": "acai congelado", "quantidade": 1, "unidade": "l", "preco": 21.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Curimatã KG", "marca": null, "categoria_sugerida": "peixe", "quantidade": 1, "unidade": "kg", "preco": 17.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Matrinxã KG", "marca": null, "categoria_sugerida": "peixe", "quantidade": 1, "unidade": "kg", "preco": 29.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Surubim KG", "marca": null, "categoria_sugerida": "peixe", "quantidade": 1, "unidade": "kg", "preco": 22.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Dourado KG", "marca": null, "categoria_sugerida": "peixe", "quantidade": 1, "unidade": "kg", "preco": 32.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Tambaqui KG", "marca": null, "categoria_sugerida": "peixe", "quantidade": 1, "unidade": "kg", "preco": 19.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Filhote KG", "marca": null, "categoria_sugerida": "peixe", "quantidade": 1, "unidade": "kg", "preco": 32.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Filé de Dourado KG", "marca": null, "categoria_sugerida": "peixe", "quantidade": 1, "unidade": "kg", "preco": 59.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Filé de Tambaqui KG", "marca": null, "categoria_sugerida": "peixe", "quantidade": 1, "unidade": "kg", "preco": 59.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Aracu KG", "marca": null, "categoria_sugerida": "peixe", "quantidade": 1, "unidade": "kg", "preco": 24.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 }
+  ]
+}
