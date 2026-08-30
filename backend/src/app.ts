@@ -7,6 +7,7 @@ import { precosRoutes } from "./modules/precos/precos.routes.js";
 import { revisaoRoutes } from "./modules/revisao/revisao.routes.js";
 import { lojasRoutes } from "./modules/lojas/lojas.routes.js";
 import { categoriasRoutes } from "./modules/categorias/categorias.routes.js";
+import { listaComprasRoutes } from "./modules/lista-compras/lista-compras.routes.js";
 
 export function buildApp() {
   const app = Fastify({ logger: true }).withTypeProvider<ZodTypeProvider>();
@@ -24,6 +25,7 @@ export function buildApp() {
   app.register(revisaoRoutes);
   app.register(lojasRoutes);
   app.register(categoriasRoutes);
+  app.register(listaComprasRoutes);
 
   return app;
 }

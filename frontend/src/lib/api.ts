@@ -51,6 +51,37 @@ export interface PromocaoLoja {
   extraidoEm: string;
 }
 
+export interface ItemListaEncontrado {
+  termoBuscado: string;
+  produtoCanonicoId: string;
+  nomeCanonico: string;
+  marca: string | null;
+  categoria: { nome: string; slug: string; icone: string | null };
+  unidadePadrao: UnidadePadrao;
+  precosPorLoja: {
+    lojaId: string;
+    nomeRaw: string;
+    preco: number;
+    tipoValidade: TipoValidade;
+    validadeFim: string | null;
+  }[];
+}
+
+export interface TotalPorLoja {
+  lojaId: string;
+  nomeRaw: string;
+  total: number;
+  itens: { termoBuscado: string; nomeCanonico: string; preco: number }[];
+}
+
+export interface ResultadoListaCompras {
+  itensEncontrados: ItemListaEncontrado[];
+  itensNaoEncontrados: string[];
+  totalDividido: { total: number; porLoja: TotalPorLoja[] } | null;
+  totalUnicoMercado: TotalPorLoja | null;
+  economia: number | null;
+}
+
 export interface SugestaoFusao {
   id: string;
   score: number;
@@ -93,6 +124,10 @@ export function listarLojas(): Promise<Loja[]> {
 
 export function listarPromocoesPorLoja(id: string): Promise<PromocaoLoja[]> {
   return requisitar(`/lojas/${encodeURIComponent(id)}/produtos`);
+}
+
+export function compararListaCompras(itens: string[]): Promise<ResultadoListaCompras> {
+  return requisitar(`/lista-compras/comparar`, { method: "POST", body: JSON.stringify({ itens }) });
 }
 
 export function listarSugestoesFusao(): Promise<SugestaoFusao[]> {
