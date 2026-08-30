@@ -2,6 +2,11 @@ import { TipoValidade } from "@prisma/client";
 import { prisma } from "../../lib/prisma-client.js";
 import { normalizarNome } from "../normalizacao/normalizar-nome.js";
 
+// "enquanto durar o estoque" não tem data de fim — sem isso, uma promoção assim ficaria visível
+// para sempre mesmo que a loja nunca mais confirme o preço. Some sozinha depois de 3 dias sem uma
+// nova extração (reimportação de panfleto daquela loja); o selo de "envelhecido" acende 1 dia antes.
+const DIAS_LIMITE_ENQUANTO_ESTOQUE = 3;
+
 export interface PrecoResultado {
   precoId: string;
   loja: { id: string; nomeRaw: string };
@@ -20,6 +25,33 @@ export interface ProdutoComPrecos {
   marca: string | null;
   unidadePadrao: string;
   precos: PrecoResultado[];
+}
+
+function filtroPrecoAtivo() {
+  const hoje = new Date();
+  hoje.setUTCHours(0, 0, 0, 0);
+
+  const corteEnquantoEstoque = new Date();
+  corteEnquantoEstoque.setDate(corteEnquantoEstoque.getDate() - DIAS_LIMITE_ENQUANTO_ESTOQUE);
+
+  return {
+    OR: [
+      { tipoValidade: TipoValidade.ENQUANTO_DURAR_ESTOQUE, extraidoEm: { gte: corteEnquantoEstoque } },
+      { tipoValidade: TipoValidade.DATA_DEFINIDA, validadeFim: { gte: hoje } },
+    ],
+  };
+}
+
+// Uma loja pode reimportar um panfleto e gerar um novo registro de preço para o mesmo produto —
+// sem isso, o preço antigo (possivelmente já trocado) continuaria aparecendo ao lado do novo como
+// se fosse outra oferta da mesma loja. Mantém só o registro mais recente por chave.
+function manterMaisRecentePorChave<T extends { extraidoEm: Date }>(itens: T[], chave: (item: T) => string): T[] {
+  const maisRecentePorChave = new Map<string, T>();
+  for (const item of itens) {
+    const atual = maisRecentePorChave.get(chave(item));
+    if (!atual || item.extraidoEm > atual.extraidoEm) maisRecentePorChave.set(chave(item), item);
+  }
+  return itens.filter((item) => maisRecentePorChave.get(chave(item)) === item);
 }
 
 function mapPreco(preco: {
@@ -44,27 +76,19 @@ function mapPreco(preco: {
   };
 }
 
-// Só a tabela `precos` é lida aqui — item.4 do plano: enquanto_durar_estoque nunca some por
-// data; data_definida some da busca normal quando validadeFim já passou (mas segue no histórico).
-// Compartilhado pela busca por texto e pela navegação por categoria: ambas mostram os mesmos
-// cards, mesma regra de validade, mesmo ranking por preço por unidade padrão.
+// Só a tabela `precos` é lida aqui — item.4 do plano: enquanto_durar_estoque some sem confirmação
+// recente (ver DIAS_LIMITE_ENQUANTO_ESTOQUE); data_definida some da busca normal quando validadeFim
+// já passou. Compartilhado pela busca por texto e pela navegação por categoria: ambas mostram os
+// mesmos cards, mesma regra de validade, mesmo ranking por preço por unidade padrão.
 async function montarResultado(produtoCanonicoIds: string[]): Promise<ProdutoComPrecos[]> {
   if (produtoCanonicoIds.length === 0) return [];
-
-  const hoje = new Date();
-  hoje.setUTCHours(0, 0, 0, 0);
 
   const produtos = await prisma.produtoCanonico.findMany({
     where: { id: { in: produtoCanonicoIds } },
     include: {
       categoria: true,
       precos: {
-        where: {
-          OR: [
-            { tipoValidade: TipoValidade.ENQUANTO_DURAR_ESTOQUE },
-            { tipoValidade: TipoValidade.DATA_DEFINIDA, validadeFim: { gte: hoje } },
-          ],
-        },
+        where: filtroPrecoAtivo(),
         include: { loja: { select: { id: true, nomeRaw: true } } },
         orderBy: { precoPorUnidadePadrao: "asc" },
       },
@@ -72,6 +96,7 @@ async function montarResultado(produtoCanonicoIds: string[]): Promise<ProdutoCom
   });
 
   return produtos
+    .map((p) => ({ ...p, precos: manterMaisRecentePorChave(p.precos, (preco) => preco.loja.id) }))
     .filter((p) => p.precos.length > 0)
     .map((p) => ({
       produtoCanonicoId: p.id,
@@ -124,24 +149,15 @@ export interface PromocaoLoja {
 // Visão por mercado: mesma regra de validade da busca/categoria, mas sem agrupar por produto
 // entre lojas — cada linha é uma promoção daquela loja específica.
 export async function listarPromocoesPorLoja(lojaId: string): Promise<PromocaoLoja[]> {
-  const hoje = new Date();
-  hoje.setUTCHours(0, 0, 0, 0);
-
   const precos = await prisma.preco.findMany({
-    where: {
-      lojaId,
-      OR: [
-        { tipoValidade: TipoValidade.ENQUANTO_DURAR_ESTOQUE },
-        { tipoValidade: TipoValidade.DATA_DEFINIDA, validadeFim: { gte: hoje } },
-      ],
-    },
+    where: { lojaId, ...filtroPrecoAtivo() },
     include: {
       produtoCanonico: { include: { categoria: true } },
     },
     orderBy: { produtoCanonico: { nomeCanonico: "asc" } },
   });
 
-  return precos.map((preco) => ({
+  return manterMaisRecentePorChave(precos, (preco) => preco.produtoCanonico.id).map((preco) => ({
     precoId: preco.id,
     produtoCanonicoId: preco.produtoCanonico.id,
     nomeCanonico: preco.produtoCanonico.nomeCanonico,
@@ -161,23 +177,14 @@ export async function listarPromocoesPorLoja(lojaId: string): Promise<PromocaoLo
   }));
 }
 
-// Mesma regra de permanência do resto do app: uma promoção com data_definida some assim que
-// validadeFim passa, mesmo aqui. Não é um histórico de preços passados — é a lista de ofertas
-// ainda válidas para esse produto, com as datas de extração para o usuário avaliar a atualidade.
+// Mesma regra de permanência do resto do app: uma promoção some quando vence (data_definida) ou
+// fica velha demais sem confirmação (enquanto_durar_estoque). Não é um histórico de preços
+// passados — é a lista de ofertas ainda válidas para esse produto, uma por loja.
 export async function listarHistoricoProduto(produtoCanonicoId: string): Promise<PrecoResultado[]> {
-  const hoje = new Date();
-  hoje.setUTCHours(0, 0, 0, 0);
-
   const precos = await prisma.preco.findMany({
-    where: {
-      produtoCanonicoId,
-      OR: [
-        { tipoValidade: TipoValidade.ENQUANTO_DURAR_ESTOQUE },
-        { tipoValidade: TipoValidade.DATA_DEFINIDA, validadeFim: { gte: hoje } },
-      ],
-    },
+    where: { produtoCanonicoId, ...filtroPrecoAtivo() },
     include: { loja: { select: { id: true, nomeRaw: true } } },
     orderBy: { extraidoEm: "desc" },
   });
-  return precos.map(mapPreco);
+  return manterMaisRecentePorChave(precos, (preco) => preco.loja.id).map(mapPreco);
 }
