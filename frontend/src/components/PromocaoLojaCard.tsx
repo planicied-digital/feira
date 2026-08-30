@@ -24,10 +24,10 @@ export function PromocaoLojaCard({ promocao }: PromocaoLojaCardProps) {
           {promocao.nomeCanonico}
           {promocao.marca ? ` · ${promocao.marca}` : ""}
         </p>
-        <p className="text-lg font-bold text-gray-900">
+        <p className="text-lg font-bold text-gray-900">{formatarMoeda(promocao.preco)}</p>
+        <p className="text-xs text-gray-500">
           {formatarPrecoPorUnidade(promocao.precoPorUnidadePadrao, promocao.unidadePadrao)}
         </p>
-        <p className="text-xs text-gray-500">{formatarMoeda(promocao.preco)} no total</p>
         <p className="mt-0.5 text-[11px] text-gray-400">{promocao.categoria.nome}</p>
       </div>
       <SeloValidade
