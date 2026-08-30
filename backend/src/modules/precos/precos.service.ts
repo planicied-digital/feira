@@ -161,9 +161,21 @@ export async function listarPromocoesPorLoja(lojaId: string): Promise<PromocaoLo
   }));
 }
 
+// Mesma regra de permanência do resto do app: uma promoção com data_definida some assim que
+// validadeFim passa, mesmo aqui. Não é um histórico de preços passados — é a lista de ofertas
+// ainda válidas para esse produto, com as datas de extração para o usuário avaliar a atualidade.
 export async function listarHistoricoProduto(produtoCanonicoId: string): Promise<PrecoResultado[]> {
+  const hoje = new Date();
+  hoje.setUTCHours(0, 0, 0, 0);
+
   const precos = await prisma.preco.findMany({
-    where: { produtoCanonicoId },
+    where: {
+      produtoCanonicoId,
+      OR: [
+        { tipoValidade: TipoValidade.ENQUANTO_DURAR_ESTOQUE },
+        { tipoValidade: TipoValidade.DATA_DEFINIDA, validadeFim: { gte: hoje } },
+      ],
+    },
     include: { loja: { select: { id: true, nomeRaw: true } } },
     orderBy: { extraidoEm: "desc" },
   });
