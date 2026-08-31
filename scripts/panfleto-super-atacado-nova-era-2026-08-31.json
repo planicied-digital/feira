@@ -1,0 +1,39 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-31 at 10.36.41.jpeg",
+  "estabelecimento": {
+    "nome_raw": "Super Atacado Nova Era",
+    "endereco_raw": null,
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "data_definida",
+    "inicio": "2026-08-31",
+    "fim": "2026-09-06"
+  },
+  "extraido_em": "2026-08-31T14:45:00-04:00",
+  "itens": [
+    { "nome_raw": "Costela Suína Perdigão Cong. KG", "marca": "Perdigão", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 20.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Bebida Láctea Mocoquinha Choc. 200ml", "marca": "Mocoquinha", "categoria_sugerida": "laticinios", "quantidade": 200, "unidade": "ml", "preco": 1.45, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.92 },
+    { "nome_raw": "Hambúrguer Misto Seara Texas Burger 56g", "marca": "Seara", "categoria_sugerida": "carnes", "quantidade": 56, "unidade": "g", "preco": 0.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.8 },
+    { "nome_raw": "Bolacha de Motor Papaguara 300g", "marca": "Papaguara", "categoria_sugerida": "biscoito", "quantidade": 300, "unidade": "g", "preco": 5.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.9 },
+    { "nome_raw": "Ketchup Bonare Tradic. Sachê 190g", "marca": "Bonare", "categoria_sugerida": "molho", "quantidade": 190, "unidade": "g", "preco": 1.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.92 },
+    { "nome_raw": "Sardinha Robinson Crusoe Lata 125g", "marca": "Robinson Crusoe", "categoria_sugerida": "enlatado", "quantidade": 125, "unidade": "g", "preco": 4.35, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Aveia Integral Quaker Em Flocos Fino ou Regular Cx 165g", "marca": "Quaker", "categoria_sugerida": "cereal", "quantidade": 165, "unidade": "g", "preco": 3.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.92 },
+    { "nome_raw": "Atum Ralado ao Óleo 88 Lata 140g", "marca": "88", "categoria_sugerida": "enlatado", "quantidade": 140, "unidade": "g", "preco": 5.65, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.92 },
+    { "nome_raw": "Sopão Maggi Sabores 200g", "marca": "Maggi", "categoria_sugerida": "sopa", "quantidade": 200, "unidade": "g", "preco": 8.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.85 },
+    { "nome_raw": "Arroz Branco Meu Biju 1kg Tipo 1", "marca": "Biju", "categoria_sugerida": "arroz", "quantidade": 1, "unidade": "kg", "preco": 4.75, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Biscoito Cream Cracker Marilan Especial 350g", "marca": "Marilan", "categoria_sugerida": "biscoito", "quantidade": 350, "unidade": "g", "preco": 3.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Laranja Paulista KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 6.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Maçã Nectar 850g", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 850, "unidade": "g", "preco": 4.89, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.82 },
+    { "nome_raw": "Uva Vitória 500g Semente", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 500, "unidade": "g", "preco": 8.45, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.92 },
+    { "nome_raw": "Cerveja Brahma Duplo Malte Lata 269ml", "marca": "Brahma", "categoria_sugerida": "bebidas", "quantidade": 269, "unidade": "ml", "preco": 2.35, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Cerveja Heineken Lata Sleek 350ml", "marca": "Heineken", "categoria_sugerida": "bebidas", "quantidade": 350, "unidade": "ml", "preco": 4.75, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Creme Dental Colgate M.P.A. 180g", "marca": "Colgate", "categoria_sugerida": "higiene", "quantidade": 180, "unidade": "g", "preco": 7.45, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Absorvente CottonBaby Lady Suave S/Abas 8un", "marca": "CottonBaby", "categoria_sugerida": "higiene pessoal", "quantidade": 8, "unidade": "un", "preco": 2.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Detergente Limpol Frag. 500ml", "marca": "Limpol", "categoria_sugerida": "limpeza", "quantidade": 500, "unidade": "ml", "preco": 2.95, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Sabão em Pó Tixan Ypê Frag. Sachê 800g", "marca": "Tixan Ypê", "categoria_sugerida": "limpeza", "quantidade": 800, "unidade": "g", "preco": 10.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Sabão em Barra Flamengo Eucalipto 1kg", "marca": "Flamengo", "categoria_sugerida": "limpeza", "quantidade": 1, "unidade": "kg", "preco": 7.65, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Ração Champ Cães Adt 900g Carne/Cereal", "marca": "Champ", "categoria_sugerida": "pet", "quantidade": 900, "unidade": "g", "preco": 10.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Ração KiteKat Gato Adt 900g Mix de Carnes", "marca": "KiteKat", "categoria_sugerida": "pet", "quantidade": 900, "unidade": "g", "preco": 10.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 }
+  ]
+}

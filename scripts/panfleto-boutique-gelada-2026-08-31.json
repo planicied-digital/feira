@@ -1,0 +1,17 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-31 at 14.11.24.jpeg",
+  "estabelecimento": {
+    "nome_raw": "Boutique Gelada",
+    "endereco_raw": "Av. Princesa Isabel, 3398, Tancredo Neves, Boa Vista-RR",
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "data_definida",
+    "inicio": "2026-08-31",
+    "fim": "2026-08-31"
+  },
+  "extraido_em": "2026-08-31T14:45:00-04:00",
+  "itens": [
+    { "nome_raw": "Café Maratá 250g Tradicional", "marca": "Maratá", "categoria_sugerida": "cafe", "quantidade": 250, "unidade": "g", "preco": 10.99, "preco_original": 15.89, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 }
+  ]
+}

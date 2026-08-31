@@ -1,0 +1,40 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-31 at 10.36.39.jpeg + 10.36.40.jpeg",
+  "estabelecimento": {
+    "nome_raw": "Nova Era",
+    "endereco_raw": null,
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "data_definida",
+    "inicio": "2026-08-31",
+    "fim": "2026-09-01"
+  },
+  "extraido_em": "2026-08-31T14:45:00-04:00",
+  "itens": [
+    { "nome_raw": "Cebola Nacional KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 5.85, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cenoura KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 7.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Ovos Brancos Granja Vitória 30UN", "marca": "Granja Vitória", "categoria_sugerida": "ovos", "quantidade": 30, "unidade": "un", "preco": 12.55, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Farinha Branca Dona Dê 1kg Tipo 1", "marca": "Dona Dê", "categoria_sugerida": "farinha", "quantidade": 1, "unidade": "kg", "preco": 3.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Coxas de Frango Sadia IQF 1kg", "marca": "Sadia", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 9.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Steak de Frango Sadia 100g", "marca": "Sadia", "categoria_sugerida": "carnes", "quantidade": 100, "unidade": "g", "preco": 1.65, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Arroz Branco Safrinha Fino 1kg", "marca": "Safrinha", "categoria_sugerida": "arroz", "quantidade": 1, "unidade": "kg", "preco": 2.75, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Macarrão Espaguete Favorita 400g", "marca": "Favorita", "categoria_sugerida": "massas", "quantidade": 400, "unidade": "g", "preco": 2.45, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Açúcar Cristal Sônora 1kg", "marca": "Sônora", "categoria_sugerida": "acucar", "quantidade": 1, "unidade": "kg", "preco": 2.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Óleo de Soja Serra Verde 900ml", "marca": "Serra Verde", "categoria_sugerida": "oleo", "quantidade": 900, "unidade": "ml", "preco": 6.45, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Sabão em Pó Ala Frag. 400g", "marca": "Ala", "categoria_sugerida": "limpeza", "quantidade": 400, "unidade": "g", "preco": 2.85, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Amaciante de Roupas Granbon Frag. 2L", "marca": "Granbon", "categoria_sugerida": "limpeza", "quantidade": 2, "unidade": "l", "preco": 4.95, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Alho KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 21.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Abóbora Regional KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 4.55, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Kiwi 500g", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 500, "unidade": "g", "preco": 11.45, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Tangerina Murgote KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 9.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Melão Amarelo KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 7.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Batata Doce Branca KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 5.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Banana Pacovan KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 9.25, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Abacate KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 7.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Macaxeira KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 3.75, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Pimentão Verde KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 19.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Ovos Vermelhos Caipira Água Boa 12UN", "marca": "Água Boa", "categoria_sugerida": "ovos", "quantidade": 12, "unidade": "un", "preco": 13.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Ovos de Codorna Granja Santo Antônio 30UN", "marca": "Granja Santo Antônio", "categoria_sugerida": "ovos", "quantidade": 30, "unidade": "un", "preco": 6.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 }
+  ]
+}
