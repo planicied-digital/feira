@@ -1,0 +1,34 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-31 at 10.36.42.jpeg",
+  "estabelecimento": {
+    "nome_raw": "Nova Era",
+    "endereco_raw": null,
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "data_definida",
+    "inicio": "2026-08-31",
+    "fim": "2026-09-06"
+  },
+  "extraido_em": "2026-08-31T14:45:00-04:00",
+  "itens": [
+    { "nome_raw": "Filé de Peito de Frango Seara Bdj 1kg", "marca": "Seara", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 17.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Filezinho de Frango Seara Bandeja 1kg", "marca": "Seara", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 16.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Café Pilão Almofada Tradic. 250g", "marca": "Pilão", "categoria_sugerida": "cafe", "quantidade": 250, "unidade": "g", "preco": 13.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Leite em Pó Itambé Integral 400g", "marca": "Itambé", "categoria_sugerida": "laticinios", "quantidade": 400, "unidade": "g", "preco": 12.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Feijão Carioca Feijão da Casa 1kg Tipo 1", "marca": "Feijão da Casa", "categoria_sugerida": "feijao", "quantidade": 1, "unidade": "kg", "preco": 6.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Leite Condensado CCGL TP 395g Semi Desnat", "marca": "CCGL", "categoria_sugerida": "laticinios", "quantidade": 395, "unidade": "g", "preco": 5.75, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Rosquinha de Coco Rancheiro 300g", "marca": "Rancheiro", "categoria_sugerida": "biscoito", "quantidade": 300, "unidade": "g", "preco": 4.45, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Refrigerante Baré 2L", "marca": "Baré", "categoria_sugerida": "bebidas", "quantidade": 2, "unidade": "l", "preco": 4.65, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Linguiça Tipo Calabresa Perdigão KG", "marca": "Perdigão", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 19.55, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Margarina Deline c/Sal 250g", "marca": "Deline", "categoria_sugerida": "laticinios", "quantidade": 250, "unidade": "g", "preco": 3.45, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Salsicha Hot Dog Perdigão KG", "marca": "Perdigão", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 10.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Sabonete Albany Frag. 80g", "marca": "Albany", "categoria_sugerida": "higiene", "quantidade": 80, "unidade": "g", "preco": 1.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Asas de Frango Sadia Bandeja 1kg", "marca": "Sadia", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 16.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Papel-Toalha Scala Pacote 2un", "marca": "Scala", "categoria_sugerida": "limpeza", "quantidade": null, "unidade": null, "preco": 4.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.92 },
+    { "nome_raw": "Papel Higiênico Max FD 60m Neutro", "marca": "Max", "categoria_sugerida": "limpeza", "quantidade": null, "unidade": null, "preco": 20.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.9 },
+    { "nome_raw": "Suco Integral Panizon Uva 1.5L", "marca": "Panizon", "categoria_sugerida": "bebidas", "quantidade": 1.5, "unidade": "l", "preco": 16.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Bacon Defumado em Manta Perdigão KG", "marca": "Perdigão", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 28.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Kit Capilar Seda Frag. 3in1 Shampoo 300ml Cond. 190ml", "marca": "Seda", "categoria_sugerida": "higiene", "quantidade": null, "unidade": null, "preco": 19.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.9 }
+  ]
+}
