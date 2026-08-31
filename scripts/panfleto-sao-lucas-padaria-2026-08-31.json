@@ -1,0 +1,23 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-31 at 07.19.49.jpeg + 07.19.49 (1).jpeg",
+  "estabelecimento": {
+    "nome_raw": "São Lucas Supermercado",
+    "endereco_raw": "Rua Pedro Aldemar Bantim, 887 - Dr. Silvio Botelho",
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "data_definida",
+    "inicio": "2026-08-31",
+    "fim": "2026-08-31"
+  },
+  "extraido_em": "2026-08-31T08:30:00-04:00",
+  "itens": [
+    { "nome_raw": "Salgado Frito Sabores Und", "marca": null, "categoria_sugerida": "padaria", "quantidade": 1, "unidade": "un", "preco": 3.89, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Bolo Simples Amanteigado Und", "marca": null, "categoria_sugerida": "padaria", "quantidade": 1, "unidade": "un", "preco": 9.49, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Bolo Nega Maluca KG", "marca": null, "categoria_sugerida": "padaria", "quantidade": 1, "unidade": "kg", "preco": 18.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Pudim KG", "marca": null, "categoria_sugerida": "padaria", "quantidade": 1, "unidade": "kg", "preco": 18.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Pão Francês KG", "marca": null, "categoria_sugerida": "padaria", "quantidade": 1, "unidade": "kg", "preco": 8.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Pão de Forma São Lucas Und", "marca": "São Lucas", "categoria_sugerida": "padaria", "quantidade": 1, "unidade": "un", "preco": 8.49, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Pão de Queijo KG", "marca": null, "categoria_sugerida": "padaria", "quantidade": 1, "unidade": "kg", "preco": 19.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 }
+  ]
+}

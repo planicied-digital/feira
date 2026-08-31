@@ -1,0 +1,24 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-31 at 07.17.50.jpeg",
+  "estabelecimento": { "nome_raw": "Mercantil Nova Vida", "endereco_raw": "Av. Laura Pinheiro Maia, 2224, Santa Luzia, Boa Vista-RR", "rede": null },
+  "validade": { "tipo_validade": "data_definida", "inicio": "2026-08-31", "fim": "2026-09-06" },
+  "extraido_em": "2026-08-31T08:37:00-04:00",
+  "itens": [
+    { "nome_raw": "Beb Real 510ml", "marca": "Real", "categoria_sugerida": "bebidas", "quantidade": 510, "unidade": "ml", "preco": 4.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Beb Real Morango 800ml", "marca": "Real", "categoria_sugerida": "bebidas", "quantidade": 800, "unidade": "ml", "preco": 7.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Bombons Garoto 220g", "marca": "Garoto", "categoria_sugerida": "mercearia", "quantidade": 220, "unidade": "g", "preco": 11.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Água Tônica Paraguay 350ml", "marca": "Paraguay", "categoria_sugerida": "bebidas", "quantidade": 350, "unidade": "ml", "preco": 3.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Café Marata 250g", "marca": "Marata", "categoria_sugerida": "cafe", "quantidade": 250, "unidade": "g", "preco": 13.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Achocolatado Toddy 370g", "marca": "Toddy", "categoria_sugerida": "mercearia", "quantidade": 370, "unidade": "g", "preco": 9.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Biscoito Negresco 90g", "marca": "Negresco", "categoria_sugerida": "padaria", "quantidade": 90, "unidade": "g", "preco": 1.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Trigo Dona Benta S/F 1kg", "marca": "Dona Benta", "categoria_sugerida": "farinha", "quantidade": 1, "unidade": "kg", "preco": 4.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Farinha Branca Dona Dê 1kg", "marca": "Dona Dê", "categoria_sugerida": "farinha", "quantidade": 1, "unidade": "kg", "preco": 4.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Feijão Branco Kicaldo 1kg", "marca": "Kicaldo", "categoria_sugerida": "feijao", "quantidade": 1, "unidade": "kg", "preco": 5.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Amaciante Glória 1L", "marca": "Glória", "categoria_sugerida": "limpeza", "quantidade": 1, "unidade": "l", "preco": 3.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Detergente Ypê 500ml", "marca": "Ypê", "categoria_sugerida": "limpeza", "quantidade": 500, "unidade": "ml", "preco": 2.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Fralda Capricho", "marca": "Capricho", "categoria_sugerida": "fraldas", "quantidade": null, "unidade": null, "preco": 4.99, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": 4.99, "confianca_ocr": 0.9 },
+    { "nome_raw": "Desodorante One 150ml", "marca": "One", "categoria_sugerida": "higiene pessoal", "quantidade": 150, "unidade": "ml", "preco": 5.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Ração Pedigree 10kg Adulto", "marca": "Pedigree", "categoria_sugerida": "petshop", "quantidade": 10, "unidade": "kg", "preco": 99.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Ração Vittamax Classic 7kg", "marca": "Vittamax", "categoria_sugerida": "petshop", "quantidade": 7, "unidade": "kg", "preco": 59.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 }
+  ]
+}

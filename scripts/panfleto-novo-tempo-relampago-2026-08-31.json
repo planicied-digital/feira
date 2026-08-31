@@ -1,0 +1,19 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-31 at 07.17.33.jpeg",
+  "estabelecimento": { "nome_raw": "Novo Tempo Supermercados", "endereco_raw": "Av. Mário H. de Melo, 2213 - Mecejana | Rua Valério Magalhães, 197 - S. Francisco | Rua José Aleixo, 2657 - Asa Branca | Av. Princesa Isabel, 1647 - Buritis, Boa Vista-RR", "rede": null },
+  "validade": { "tipo_validade": "data_definida", "inicio": "2026-08-31", "fim": "2026-08-31" },
+  "extraido_em": "2026-08-31T08:34:00-04:00",
+  "itens": [
+    { "nome_raw": "Ovos Vermelhos Granja Passarão CTL c/ 30 UND", "marca": "Passarão", "categoria_sugerida": "ovos", "quantidade": 30, "unidade": "un", "preco": 12.98, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Café Melitta 250g", "marca": "Melitta", "categoria_sugerida": "cafe", "quantidade": 250, "unidade": "g", "preco": 12.98, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Bombons Chocolate Lacta Sonho de Valsa ou Ouro Branco PCT c/ 50 UND", "marca": "Lacta", "categoria_sugerida": "mercearia", "quantidade": null, "unidade": null, "preco": 49.98, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.9 },
+    { "nome_raw": "Leite em Pó Pense Batavo Zero Lactose 330g", "marca": "Batavo", "categoria_sugerida": "laticinios", "quantidade": 330, "unidade": "g", "preco": 16.98, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Leite Ninho em Pó Integral Lata 380g", "marca": "Ninho", "categoria_sugerida": "laticinios", "quantidade": 380, "unidade": "g", "preco": 17.98, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Pão de Queijo Delícias do Chef 500g", "marca": "Delícias do Chef", "categoria_sugerida": "padaria", "quantidade": 500, "unidade": "g", "preco": 12.98, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Biscoito Polvilho Delícias do Chef Sabores 250g", "marca": "Delícias do Chef", "categoria_sugerida": "padaria", "quantidade": 250, "unidade": "g", "preco": 6.98, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Sardinha Robinson Crusoe 125g", "marca": "Robinson Crusoe", "categoria_sugerida": "carnes", "quantidade": 125, "unidade": "g", "preco": 4.78, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Papel Toalha Scala c/ 2 Rolos", "marca": "Scala", "categoria_sugerida": "limpeza", "quantidade": 2, "unidade": "un", "preco": 3.98, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Batata Congelada Bem Brasil Chic 2kg", "marca": "Bem Brasil", "categoria_sugerida": "congelados", "quantidade": 2, "unidade": "kg", "preco": 22.98, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Linguiça Tipo Calabresa Perdigão KG", "marca": "Perdigão", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 18.98, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 }
+  ]
+}
