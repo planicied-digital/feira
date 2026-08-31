@@ -1,0 +1,40 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-31 at 07.17.10.jpeg + 07.17.11.jpeg + 07.17.12.jpeg + 07.17.12 (1).jpeg + 07.17.14.jpeg + 07.17.15.jpeg + 07.17.16.jpeg + 07.17.16 (1).jpeg + 07.17.17.jpeg + 07.17.18.jpeg + 07.17.19.jpeg + 07.17.20.jpeg + 07.17.21.jpeg + 07.17.22.jpeg + 07.17.22 (1).jpeg + 07.17.23.jpeg",
+  "estabelecimento": {
+    "nome_raw": "Nova Era",
+    "endereco_raw": null,
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "data_definida",
+    "inicio": "2026-08-31",
+    "fim": "2026-09-06"
+  },
+  "extraido_em": "2026-08-31T08:30:00-04:00",
+  "itens": [
+    { "nome_raw": "Sabonete Albany Frag. 80g", "marca": "Albany", "categoria_sugerida": "higiene", "quantidade": 80, "unidade": "g", "preco": 1.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Cadeira Rosset's Preta c/Braço", "marca": "Rosset's", "categoria_sugerida": "outros", "quantidade": null, "unidade": null, "preco": 39.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Churrasqueira Elétrica de Mesa Elgin Preta", "marca": "Elgin", "categoria_sugerida": "outros", "quantidade": null, "unidade": null, "preco": 79.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Liquidificador Britânia Turbo 900W 127V Vermelho BLQ970V", "marca": "Britânia", "categoria_sugerida": "outros", "quantidade": null, "unidade": null, "preco": 139.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Ração Champ Cães Adulto 900g Carne/Cereal", "marca": "Champ", "categoria_sugerida": "pet", "quantidade": 900, "unidade": "g", "preco": 10.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Ração Kitekat Gato Adulto 900g Mix de Carnes", "marca": "Kitekat", "categoria_sugerida": "pet", "quantidade": 900, "unidade": "g", "preco": 10.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Maçã Nectar 850g", "marca": "Nectar", "categoria_sugerida": "hortifruti", "quantidade": 850, "unidade": "g", "preco": 4.85, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Uva Vitória s/Semente 500g", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 500, "unidade": "g", "preco": 8.45, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Aveia Integral Quaker em Flocos Fino ou Regular Caixa 165g", "marca": "Quaker", "categoria_sugerida": "mercearia", "quantidade": 165, "unidade": "g", "preco": 3.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Laranja Paulista KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 6.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97 },
+    { "nome_raw": "Atum Ralado ao Óleo 88 Lata 140g", "marca": "88", "categoria_sugerida": "mercearia", "quantidade": 140, "unidade": "g", "preco": 5.65, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Sopão Maggi Sabores 200g", "marca": "Maggi", "categoria_sugerida": "mercearia", "quantidade": 200, "unidade": "g", "preco": 8.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Bebida Láctea UHT Mocoquinha Chocolate 200ml", "marca": "Mococa", "categoria_sugerida": "laticinios", "quantidade": 200, "unidade": "ml", "preco": 1.45, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Bolacha de Motor Papaguara 300g", "marca": "Papaguara", "categoria_sugerida": "biscoito", "quantidade": 300, "unidade": "g", "preco": 5.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Filé de Peito de Frango Seara Bandeja 1kg", "marca": "Seara", "categoria_sugerida": "frango", "quantidade": 1, "unidade": "kg", "preco": 17.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Filezinho de Frango (Sassami) Seara 1kg Bandeja", "marca": "Seara", "categoria_sugerida": "frango", "quantidade": 1, "unidade": "kg", "preco": 16.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Café Pilão Almofada Tradicional 250g", "marca": "Pilão", "categoria_sugerida": "cafe", "quantidade": 250, "unidade": "g", "preco": 13.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Leite em Pó Itambé Integral 400g", "marca": "Itambé", "categoria_sugerida": "laticinios", "quantidade": 400, "unidade": "g", "preco": 12.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Kit Capilar Seda Frag. Shampoo 300ml + Condicionador 190ml", "marca": "Seda", "categoria_sugerida": "higiene", "quantidade": null, "unidade": null, "preco": 19.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Suco Integral Panizzon Uva 1,5L", "marca": "Panizzon", "categoria_sugerida": "bebidas", "quantidade": 1.5, "unidade": "l", "preco": 16.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Papel Higiênico Max Pure FD 40m 6un Neutro", "marca": "Max Pure", "categoria_sugerida": "higiene", "quantidade": null, "unidade": null, "preco": 20.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Papel-Toalha Scala Pacote 2un", "marca": "Scala", "categoria_sugerida": "limpeza", "quantidade": null, "unidade": null, "preco": 4.95, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.95 },
+    { "nome_raw": "Asas de Frango Sadia Bandeja 1kg", "marca": "Sadia", "categoria_sugerida": "frango", "quantidade": 1, "unidade": "kg", "preco": 16.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Bacon Defumado em Manta Perdigão", "marca": "Perdigão", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 24.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 }
+  ]
+}

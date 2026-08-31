@@ -1,0 +1,17 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-08-31 at 07.18.20.jpeg",
+  "estabelecimento": { "nome_raw": "Atacadão", "endereco_raw": "Av. Brasil, 2516 - Centenário | Av. João de Alencar, 2261 - Pátio Roraima Shopping, Boa Vista-RR", "rede": "Atacadão" },
+  "validade": { "tipo_validade": "data_definida", "inicio": "2026-08-31", "fim": "2026-09-03" },
+  "extraido_em": "2026-08-31T08:44:00-04:00",
+  "itens": [
+    { "nome_raw": "Ketchup Cepêra Bombona 3,5kg", "marca": "Cepêra", "categoria_sugerida": "mercearia", "quantidade": 3.5, "unidade": "kg", "preco": 22.9, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Coco em Flocos Ducoco Pacote 1kg", "marca": "Ducoco", "categoria_sugerida": "mercearia", "quantidade": 1, "unidade": "kg", "preco": 38.9, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Ervilha Bonare Lata 1,7kg", "marca": "Bonare", "categoria_sugerida": "mercearia", "quantidade": 1.7, "unidade": "kg", "preco": 23.9, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Extrato de Tomate Bonare Pouch 1,7kg", "marca": "Bonare", "categoria_sugerida": "mercearia", "quantidade": 1.7, "unidade": "kg", "preco": 13.9, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Leite de Coco Bulnez Pet 2L", "marca": "Bulnez", "categoria_sugerida": "mercearia", "quantidade": 2, "unidade": "l", "preco": 13.9, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Maionese Cepêra Minissachê Caixeta 140x7g", "marca": "Cepêra", "categoria_sugerida": "mercearia", "quantidade": 980, "unidade": "g", "preco": 26.9, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.9 },
+    { "nome_raw": "Maionese Hellmann's Pouch 1kg", "marca": "Hellmann's", "categoria_sugerida": "mercearia", "quantidade": 1, "unidade": "kg", "preco": 22.9, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 },
+    { "nome_raw": "Molho Shoyu Fredão Bombona 5L", "marca": "Fredão", "categoria_sugerida": "mercearia", "quantidade": 5, "unidade": "l", "preco": 32.9, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.93 },
+    { "nome_raw": "Molho de Tomate Quero Tradicional Pouch 1,02kg", "marca": "Quero", "categoria_sugerida": "mercearia", "quantidade": 1.02, "unidade": "kg", "preco": 8.29, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.94 }
+  ]
+}
