@@ -1,11 +1,17 @@
-# Compose de produção — usado na VPS, ao lado do nginx do host (Certbot) que
-# expõe https://13.140.39.163.sslip.io/sistemas/feira/ (ver
-# /etc/nginx/sites-available/planicie). Diferente do docker-compose.yml (dev):
-# usa os estágios "prod" dos Dockerfiles (build + nginx estático no frontend,
-# build compilado no backend) e publica só em 127.0.0.1, já que quem recebe
-# tráfego externo é o nginx do host, não os containers diretamente.
+# Compose de produção — usado na VPS, atrás do nginx do host (Certbot) que expõe
+# https://13.140.39.163.sslip.io/sistemas/feira/ (ver /etc/nginx/sites-available/planicie).
+# Diferente do docker-compose.yml (dev): usa os estágios "prod" dos Dockerfiles (backend compilado,
+# frontend estático em nginx) e só o frontend é publicado, e só em 127.0.0.1 — banco e backend
+# ficam na rede interna do compose. O nginx do frontend (frontend/nginx.conf) serve o app em
+# /sistemas/feira/ e repassa /sistemas/feira/api/ pro backend.
 #
 # Uso: docker compose -f docker-compose.prod.yml --env-file .env.prod up -d --build
+# Migração da stack de dev pra esta: scripts/migrar-vps-para-prod.sh
+
+# Nome de projeto próprio: sem isso, os dois compose da mesma pasta seriam o mesmo projeto
+# ("feira") e subir este recriaria os containers de dev no lugar.
+name: feira-prod
+
 services:
   db:
     image: postgres:16-alpine
@@ -30,14 +36,12 @@ services:
     container_name: feira_prod_backend
     restart: unless-stopped
     environment:
-      DATABASE_URL: ${DATABASE_URL:?defina DATABASE_URL no .env.prod}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-feira}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-feira}?schema=public
       NODE_ENV: production
       PORT: "3333"
     # "start" (package.json) só roda o server já buildado — quem aplica as
     # migrations no deploy é este comando, não o script "dev".
     command: sh -c "npx prisma migrate deploy && node dist/server.js"
-    ports:
-      - "127.0.0.1:${FEIRA_BACKEND_PORT:-3001}:3333"
     depends_on:
       db:
         condition: service_healthy
@@ -49,7 +53,7 @@ services:
     container_name: feira_prod_frontend
     restart: unless-stopped
     ports:
-      - "127.0.0.1:${FEIRA_FRONTEND_PORT:-8081}:80"
+      - "127.0.0.1:${FEIRA_PORT:-8091}:80"
     depends_on:
       - backend
 

@@ -6,6 +6,11 @@
 # (assim sempre roda a versão nova dele) e passa o commit anterior como argumento:
 #
 #   command="cd /opt/feira && ANTES=$(git rev-parse HEAD) && git pull --ff-only -q && sh scripts/deploy-vps.sh $ANTES",restrict ssh-ed25519 AAAA... feira-gha-deploy
+#
+# Dois modos, decididos pelo marcador .deploy-prod (criado no fim de scripts/migrar-vps-para-prod.sh):
+# - prod: docker-compose.prod.yml — imagens com o código compilado dentro, então sempre rebuilda
+#   (o cache do Docker pula o que não mudou) e a API é acessada pelo frontend em 127.0.0.1.
+# - dev (legado, até a migração): docker-compose.yml — só rebuilda o serviço cuja pasta mudou.
 set -eu
 
 ANTES="$1"
@@ -13,30 +18,42 @@ cd /opt/feira
 DEPOIS=$(git rev-parse HEAD)
 echo "deploy: $ANTES -> $DEPOIS"
 
-mudou() {
-  [ "$ANTES" != "$DEPOIS" ] && git diff --name-only "$ANTES" "$DEPOIS" | grep -q "^$1/"
-}
+if [ -f .deploy-prod ]; then
+  porta=$(sed -n 's/^FEIRA_PORT=//p' .env.prod)
+  API_URL="http://127.0.0.1:${porta:-8091}/sistemas/feira/api"
+  echo "stack: prod"
+  docker compose -f docker-compose.prod.yml --env-file .env.prod up -d --build
+  CONTAINER_BACKEND=feira_prod_backend
+else
+  API_URL="http://localhost:3333"
+  echo "stack: dev"
 
-servicos=""
-if mudou backend; then servicos="$servicos backend"; fi
-if mudou frontend; then servicos="$servicos frontend"; fi
+  mudou() {
+    [ "$ANTES" != "$DEPOIS" ] && git diff --name-only "$ANTES" "$DEPOIS" | grep -q "^$1/"
+  }
 
-if [ -n "$servicos" ]; then
-  echo "rebuild:$servicos"
-  # shellcheck disable=SC2086
-  docker compose up -d --build $servicos
+  servicos=""
+  if mudou backend; then servicos="$servicos backend"; fi
+  if mudou frontend; then servicos="$servicos frontend"; fi
+
+  if [ -n "$servicos" ]; then
+    echo "rebuild:$servicos"
+    # shellcheck disable=SC2086
+    docker compose up -d --build $servicos
+  fi
+  CONTAINER_BACKEND=feira_backend
 fi
 
 # O backend aplica as migrations (prisma migrate deploy) ao subir — espera ficar de pé antes de importar.
 tentativas=0
-until curl -sf http://localhost:3333/health > /dev/null; do
+until curl -sf "$API_URL/health" > /dev/null; do
   tentativas=$((tentativas + 1))
   if [ "$tentativas" -ge 90 ]; then
-    echo "backend não respondeu em http://localhost:3333/health"
-    docker logs --tail 50 feira_backend
+    echo "backend não respondeu em $API_URL/health"
+    docker logs --tail 50 "$CONTAINER_BACKEND"
     exit 1
   fi
   sleep 2
 done
 
-sh scripts/importar-panfletos.sh http://localhost:3333
+sh scripts/importar-panfletos.sh "$API_URL"
