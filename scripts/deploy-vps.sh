@@ -22,12 +22,19 @@ if [ -f .deploy-prod ]; then
   porta=$(sed -n 's/^FEIRA_PORT=//p' .env.prod)
   API_URL="http://127.0.0.1:${porta:-8091}/sistemas/feira/api"
   echo "stack: prod"
-  # Gera o token do POST /import na primeira vez — sem ele o backend prod recusa importações.
-  if [ -z "$(sed -n 's/^IMPORT_TOKEN=//p' .env.prod)" ]; then
-    sed -i '/^IMPORT_TOKEN=/d' .env.prod
-    echo "IMPORT_TOKEN=$(openssl rand -hex 32)" >> .env.prod
-    echo "IMPORT_TOKEN gerado em .env.prod"
-  fi
+  # Gera os segredos que faltarem no .env.prod — sem eles o backend prod recusa importações
+  # (IMPORT_TOKEN) e deixa a área de admin desabilitada (ADMIN_PASSWORD). Valores já definidos
+  # nunca são trocados; pra mudar a senha do admin, edite o .env.prod e rode o deploy de novo.
+  garantir_segredo() {
+    if [ -z "$(sed -n "s/^$1=//p" .env.prod)" ]; then
+      sed -i "/^$1=/d" .env.prod
+      echo "$1=$(openssl rand -hex "$2")" >> .env.prod
+      echo "$1 gerado em .env.prod"
+    fi
+  }
+  garantir_segredo IMPORT_TOKEN 32
+  garantir_segredo ADMIN_PASSWORD 12
+  garantir_segredo ADMIN_SESSION_SECRET 32
   IMPORT_TOKEN=$(sed -n 's/^IMPORT_TOKEN=//p' .env.prod)
   export IMPORT_TOKEN
   docker compose -f docker-compose.prod.yml --env-file .env.prod up -d --build

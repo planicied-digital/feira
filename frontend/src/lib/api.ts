@@ -90,6 +90,16 @@ export interface SugestaoFusao {
   produtoDestino: { id: string; nomeCanonico: string; marca: string | null };
 }
 
+export class ErroApi extends Error {
+  constructor(
+    readonly status: number,
+    caminho: string,
+    corpo: string,
+  ) {
+    super(`Erro ${status} em ${caminho}: ${corpo}`);
+  }
+}
+
 async function requisitar<T>(caminho: string, init?: RequestInit): Promise<T> {
   const resposta = await fetch(`${API_URL}${caminho}`, {
     ...init,
@@ -97,9 +107,54 @@ async function requisitar<T>(caminho: string, init?: RequestInit): Promise<T> {
   });
   if (!resposta.ok) {
     const corpo = await resposta.text();
-    throw new Error(`Erro ${resposta.status} em ${caminho}: ${corpo}`);
+    throw new ErroApi(resposta.status, caminho, corpo);
   }
   return resposta.json() as Promise<T>;
+}
+
+// Sessão do admin (/admin/*): token assinado pelo backend, guardado só neste navegador. O acesso ao
+// localStorage pode falhar (modo privado, armazenamento bloqueado) — aí a sessão só não persiste.
+const CHAVE_SESSAO_ADMIN = "feira.admin.sessao";
+let sessaoAdmin: string | null = null;
+
+function lerSessaoAdmin(): string | null {
+  if (sessaoAdmin) return sessaoAdmin;
+  try {
+    sessaoAdmin = localStorage.getItem(CHAVE_SESSAO_ADMIN);
+  } catch {
+    // sem localStorage: a sessão vale só até recarregar a página
+  }
+  return sessaoAdmin;
+}
+
+export function sairAdmin(): void {
+  sessaoAdmin = null;
+  try {
+    localStorage.removeItem(CHAVE_SESSAO_ADMIN);
+  } catch {
+    // nada a limpar
+  }
+}
+
+export async function entrarAdmin(senha: string): Promise<void> {
+  const { token } = await requisitar<{ token: string; expiraEm: string }>(`/admin/login`, {
+    method: "POST",
+    body: JSON.stringify({ senha }),
+  });
+  sessaoAdmin = token;
+  try {
+    localStorage.setItem(CHAVE_SESSAO_ADMIN, token);
+  } catch {
+    // sem localStorage: a sessão vale só até recarregar a página
+  }
+}
+
+function requisitarAdmin<T>(caminho: string, init?: RequestInit): Promise<T> {
+  const token = lerSessaoAdmin();
+  return requisitar(caminho, {
+    ...init,
+    headers: token ? { Authorization: `Bearer ${token}`, ...init?.headers } : init?.headers,
+  });
 }
 
 export function buscarProdutos(termo: string): Promise<ProdutoComPrecos[]> {
@@ -131,13 +186,13 @@ export function compararListaCompras(itens: string[]): Promise<ResultadoListaCom
 }
 
 export function listarSugestoesFusao(): Promise<SugestaoFusao[]> {
-  return requisitar(`/revisao/sugestoes-fusao`);
+  return requisitarAdmin(`/revisao/sugestoes-fusao`);
 }
 
 export function aceitarSugestao(id: string): Promise<SugestaoFusao> {
-  return requisitar(`/revisao/sugestoes-fusao/${id}/aceitar`, { method: "PATCH" });
+  return requisitarAdmin(`/revisao/sugestoes-fusao/${id}/aceitar`, { method: "PATCH" });
 }
 
 export function rejeitarSugestao(id: string): Promise<SugestaoFusao> {
-  return requisitar(`/revisao/sugestoes-fusao/${id}/rejeitar`, { method: "PATCH" });
+  return requisitarAdmin(`/revisao/sugestoes-fusao/${id}/rejeitar`, { method: "PATCH" });
 }
