@@ -1,9 +1,13 @@
 import type { FastifyInstance } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
+import { exigirAdmin } from "../admin/sessao-admin.js";
 import { aceitarSugestao, listarSugestoesPendentes, rejeitarSugestao } from "./revisao.service.js";
 
 export async function revisaoRoutes(app: FastifyInstance) {
+  // Vale pra todas as rotas deste plugin (encapsulado: não afeta as rotas públicas).
+  app.addHook("onRequest", exigirAdmin);
+
   app.get("/revisao/sugestoes-fusao", async () => {
     return listarSugestoesPendentes();
   });
