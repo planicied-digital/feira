@@ -96,10 +96,15 @@ texto antes ou depois.
 
 ## Como importar depois de ter o JSON
 
-```powershell
-$body = Get-Content "caminho\para\folheto.json" -Raw
-Invoke-RestMethod -Uri http://localhost:8090/sistemas/feira/api/import -Method Post -Body $body -ContentType "application/json"
+Salve o JSON como `scripts/panfleto-<mercado>-<data>.json` e rode (Git Bash):
+
+```bash
+sh scripts/importar-panfletos.sh
 ```
+
+O script importa só os `panfleto-*.json` que ainda não estão no banco (pode rodar quantas vezes
+quiser). Depois é só abrir o PR com o JSON: quando ele é mergeado na `master`, o workflow
+`Deploy` roda o mesmo script na VPS, então os dados chegam lá sozinhos — sem `pg_dump`.
 
 Se der erro `422`, a resposta traz a lista de itens inválidos por índice —
 corrija o JSON e reenvie (nada é gravado até o arquivo inteiro ser válido).

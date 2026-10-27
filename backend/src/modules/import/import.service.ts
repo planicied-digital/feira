@@ -77,12 +77,32 @@ export interface ImportResultItem {
 export interface ImportResult {
   folhetoId: string;
   lojaId: string;
+  jaImportado: boolean;
   itens: ImportResultItem[];
+}
+
+// Idempotência por arquivo_json: se o JSON já foi importado, devolve o folheto existente sem gravar
+// nada. Folhetos importados antes da coluna existir (arquivo_json nulo) são "adotados" pelo
+// arquivo_origem, que é único entre eles — assim a primeira rodada do script de importação em cada
+// ambiente preenche a coluna em vez de duplicar tudo.
+async function buscarFolhetoJaImportado(
+  tx: Prisma.TransactionClient,
+  arquivoJson: string,
+  arquivoOrigem: string,
+): Promise<ImportResult | null> {
+  let folheto = await tx.folheto.findUnique({ where: { arquivoJson } });
+  if (!folheto) {
+    const legado = await tx.folheto.findFirst({ where: { arquivoJson: null, arquivoOrigem } });
+    if (legado) {
+      folheto = await tx.folheto.update({ where: { id: legado.id }, data: { arquivoJson } });
+    }
+  }
+  return folheto ? { folhetoId: folheto.id, lojaId: folheto.lojaId, jaImportado: true, itens: [] } : null;
 }
 
 // Importação all-or-nothing: toda resolução de quantidade/unidade é validada antes de abrir a
 // transação; se qualquer item falhar, nada é gravado.
-export async function importarFolheto(input: ImportFolhetoInput): Promise<ImportResult> {
+export async function importarFolheto(input: ImportFolhetoInput, arquivoJson?: string): Promise<ImportResult> {
   const resolucoes = input.itens.map(resolverUnidade);
   const erros: ImportErro[] = [];
   resolucoes.forEach((r, index) => {
@@ -99,6 +119,11 @@ export async function importarFolheto(input: ImportFolhetoInput): Promise<Import
   }
 
   return prisma.$transaction(async (tx) => {
+    if (arquivoJson) {
+      const existente = await buscarFolhetoJaImportado(tx, arquivoJson, input.arquivo_origem);
+      if (existente) return existente;
+    }
+
     const nomeLojaNormalizado = normalizarNome(input.estabelecimento.nome_raw);
     let loja = await tx.loja.findFirst({ where: { nomeNormalizado: nomeLojaNormalizado } });
     if (!loja) {
@@ -116,6 +141,7 @@ export async function importarFolheto(input: ImportFolhetoInput): Promise<Import
       data: {
         lojaId: loja.id,
         arquivoOrigem: input.arquivo_origem,
+        arquivoJson: arquivoJson ?? null,
         tipoValidade: mapTipoValidade(input.validade.tipo_validade),
         validadeInicio: input.validade.inicio ? new Date(input.validade.inicio) : null,
         validadeFim: input.validade.fim ? new Date(input.validade.fim) : null,
@@ -203,6 +229,6 @@ export async function importarFolheto(input: ImportFolhetoInput): Promise<Import
       });
     }
 
-    return { folhetoId: folheto.id, lojaId: loja.id, itens: resultadoItens };
+    return { folhetoId: folheto.id, lojaId: loja.id, jaImportado: false, itens: resultadoItens };
   });
 }

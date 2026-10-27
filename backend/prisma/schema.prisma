@@ -56,7 +56,8 @@ model Folheto {
   id             String           @id @default(cuid())
   lojaId         String           @map("loja_id")
   arquivoOrigem  String           @map("arquivo_origem")
-  tipoValidade   TipoValidade     @map("tipo_validade")
+  arquivoJson    String?          @unique @map("arquivo_json")
+  tipoValidade  TipoValidade     @map("tipo_validade")
   validadeInicio DateTime?        @map("validade_inicio") @db.Date
   validadeFim    DateTime?        @map("validade_fim") @db.Date
   extraidoEm     DateTime         @map("extraido_em")
