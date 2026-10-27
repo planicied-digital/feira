@@ -14,6 +14,8 @@ COPY . .
 RUN npm run build
 
 FROM nginx:1.27-alpine AS prod
-COPY --from=build /app/dist /usr/share/nginx/html
+# O build usa base /sistemas/feira/ (vite.config.ts), então os arquivos ficam nesse subcaminho.
+COPY --from=build /app/dist /usr/share/nginx/html/sistemas/feira
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
