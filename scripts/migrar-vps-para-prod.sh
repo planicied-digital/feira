@@ -64,8 +64,10 @@ if [ "$folhetos_prod" != "0" ]; then
   exit 1
 fi
 
-migr_dev=$(psql_dev -c "select string_agg(migration_name, ',' order by migration_name) from _prisma_migrations where finished_at is not null")
-migr_prod=$(psql_prod -c "select string_agg(migration_name, ',' order by migration_name) from _prisma_migrations where finished_at is not null")
+# distinct: o banco de dev da VPS tem linhas repetidas em _prisma_migrations (herança de uma
+# sincronização manual antiga) — o que importa é o conjunto de migrations aplicadas.
+migr_dev=$(psql_dev -c "select string_agg(distinct migration_name, ',' order by migration_name) from _prisma_migrations where finished_at is not null")
+migr_prod=$(psql_prod -c "select string_agg(distinct migration_name, ',' order by migration_name) from _prisma_migrations where finished_at is not null")
 if [ "$migr_dev" != "$migr_prod" ]; then
   echo "Migrations diferentes entre dev e prod — abortando."; echo "dev:  $migr_dev"; echo "prod: $migr_prod"; exit 1
 fi
@@ -103,7 +105,12 @@ echo "== 5/7 virando o nginx do host pra 127.0.0.1:$porta"
 backup="$NGINX_SITE.bak-feira-$(date +%Y%m%d%H%M%S)"
 cp "$NGINX_SITE" "$backup"
 sed -i "s#proxy_pass http://127.0.0.1:8090/sistemas/feira/;#proxy_pass http://127.0.0.1:$porta/sistemas/feira/;#" "$NGINX_SITE"
-voltar_nginx() { cp "$backup" "$NGINX_SITE"; nginx -t > /dev/null 2>&1 && systemctl reload nginx; religar_dev; }
+# O restart do feira_local_proxy é necessário porque o nginx dele resolve o IP do container do
+# frontend de dev só ao subir — se o frontend foi recriado depois disso, ele responde 502.
+voltar_nginx() {
+  cp "$backup" "$NGINX_SITE"; nginx -t > /dev/null 2>&1 && systemctl reload nginx
+  religar_dev; docker restart feira_local_proxy > /dev/null
+}
 if ! grep -q "proxy_pass http://127.0.0.1:$porta/sistemas/feira/;" "$NGINX_SITE"; then
   echo "Não achei o proxy_pass do feira (127.0.0.1:8090) em $NGINX_SITE — nada alterado."
   voltar_nginx; exit 1
@@ -131,7 +138,7 @@ Migração concluída. Backup do nginx: $backup
 
 Rollback, se precisar (volta tudo pra stack de dev):
   cp $backup $NGINX_SITE && nginx -t && systemctl reload nginx
-  cd /opt/feira && $DEV start && rm .deploy-prod
+  cd /opt/feira && $DEV start && docker restart feira_local_proxy && rm .deploy-prod
 
 Depois de alguns dias estável, a stack de dev pode ser removida de vez (apaga o volume antigo):
   cd /opt/feira && $DEV down -v
