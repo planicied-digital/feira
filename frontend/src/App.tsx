@@ -5,6 +5,7 @@ import { CategoriaPagina } from "./pages/Categoria";
 import { LojaPagina } from "./pages/Loja";
 import { ListaCompras } from "./pages/ListaCompras";
 import { RevisaoPendentes } from "./pages/admin/RevisaoPendentes";
+import { Ranking } from "./pages/Ranking";
 
 export function App() {
   return (
@@ -14,6 +15,7 @@ export function App() {
       <Route path="/categorias/:slug" element={<CategoriaPagina />} />
       <Route path="/lojas/:id" element={<LojaPagina />} />
       <Route path="/lista-compras" element={<ListaCompras />} />
+      <Route path="/ranking" element={<Ranking />} />
       <Route path="/admin/revisao" element={<RevisaoPendentes />} />
     </Routes>
   );
