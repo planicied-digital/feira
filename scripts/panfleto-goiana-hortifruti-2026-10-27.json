@@ -1,0 +1,32 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-10-27 at 06.02.49.jpeg + 06.02.50.jpeg",
+  "estabelecimento": {
+    "nome_raw": "Supermercado Goiana",
+    "endereco_raw": null,
+    "rede": null
+  },
+  "validade": {
+    "tipo_validade": "data_definida",
+    "inicio": "2026-10-27",
+    "fim": "2026-10-28"
+  },
+  "extraido_em": "2026-10-27T10:00:00-04:00",
+  "itens": [
+    { "nome_raw": "Alho a Granel KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 19.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 19.99, "confianca_ocr": 0.97 },
+    { "nome_raw": "Cenoura KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 5.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 5.49, "confianca_ocr": 0.97 },
+    { "nome_raw": "Repolho Verde KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 5.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 5.99, "confianca_ocr": 0.97 },
+    { "nome_raw": "Beterraba KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 4.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 4.99, "confianca_ocr": 0.97 },
+    { "nome_raw": "Cebola KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 6.59, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 6.59, "confianca_ocr": 0.97 },
+    { "nome_raw": "Maçã Nacional KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 7.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 7.99, "confianca_ocr": 0.97 },
+    { "nome_raw": "Uva Thompson Bandeja 500g", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 500, "unidade": "g", "preco": 8.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 17.98, "confianca_ocr": 0.97 },
+    { "nome_raw": "Uva Vitória Bandeja 500g", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 500, "unidade": "g", "preco": 7.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 15.98, "confianca_ocr": 0.97 },
+    { "nome_raw": "Tangerina KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 8.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 8.99, "confianca_ocr": 0.97 },
+    { "nome_raw": "Tangerina Importada KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 10.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 10.99, "confianca_ocr": 0.97 },
+    { "nome_raw": "Pera Danjou KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 12.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 12.99, "confianca_ocr": 0.97 },
+    { "nome_raw": "Ovos Vermelhos Granja Santa Luzia Cartela c/30 Und", "marca": null, "categoria_sugerida": "ovos", "quantidade": 30, "unidade": "und", "preco": 13.99, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 },
+    { "nome_raw": "Batata Lavada KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 5.79, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 5.79, "confianca_ocr": 0.97 },
+    { "nome_raw": "Tomate KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 7.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 7.99, "confianca_ocr": 0.97 },
+    { "nome_raw": "Laranja Paulista KG", "marca": null, "categoria_sugerida": "hortifruti", "quantidade": 1, "unidade": "kg", "preco": 5.89, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": 5.89, "confianca_ocr": 0.97 },
+    { "nome_raw": "Ovos Brancos Granja Vitória Cartela c/30 Und", "marca": null, "categoria_sugerida": "ovos", "quantidade": 30, "unidade": "und", "preco": 13.99, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.96 }
+  ]
+}
