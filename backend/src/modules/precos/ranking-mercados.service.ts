@@ -1,4 +1,5 @@
 import { prisma } from "../../lib/prisma-client.js";
+import { situacaoPanfletos, type SituacaoPanfleto } from "./precos.service.js";
 
 // Ranking "cabeça a cabeça": em cada produto vendido por 2+ mercados, ganha quem tem o menor preço
 // por unidade padrão; o ranking de cada mercado é a % de vitórias entre as comparações de que
@@ -15,7 +16,7 @@ const JANELA_MESMA_LEVA_MS = 7 * 24 * 60 * 60 * 1000;
 export const MIN_COMPARACOES = 5;
 
 export interface RankingLoja {
-  loja: { id: string; nomeRaw: string };
+  loja: { id: string; nomeRaw: string } & SituacaoPanfleto;
   comparacoes: number;
   vitorias: number;
   percentual: number;
@@ -65,13 +66,14 @@ export function agruparEmLevas(precos: PrecoLeva[]): PrecoLeva[][] {
 export async function calcularRankingMercados(dias: number): Promise<RankingMercados> {
   const desde = new Date(Date.now() - dias * 24 * 60 * 60 * 1000);
 
-  const [registros, lojas] = await Promise.all([
+  const [registros, lojas, situacao] = await Promise.all([
     prisma.preco.findMany({
       where: { extraidoEm: { gte: desde } },
       select: { produtoCanonicoId: true, lojaId: true, precoPorUnidadePadrao: true, extraidoEm: true },
       orderBy: { extraidoEm: "desc" },
     }),
     prisma.loja.findMany({ select: { id: true, nomeRaw: true } }),
+    situacaoPanfletos(),
   ]);
 
   const porProduto = new Map<string, PrecoLeva[]>();
@@ -104,7 +106,7 @@ export async function calcularRankingMercados(dias: number): Promise<RankingMerc
   const nomePorLoja = new Map(lojas.map((l) => [l.id, l.nomeRaw]));
   const ranking = [...placar.entries()]
     .map(([lojaId, { comparacoes: c, vitorias: v }]) => ({
-      loja: { id: lojaId, nomeRaw: nomePorLoja.get(lojaId) ?? "?" },
+      loja: { id: lojaId, nomeRaw: nomePorLoja.get(lojaId) ?? "?", ...situacao(lojaId) },
       comparacoes: c,
       vitorias: v,
       percentual: Math.round((v / c) * 1000) / 10,

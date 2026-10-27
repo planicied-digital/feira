@@ -1,7 +1,7 @@
 import type { FastifyInstance } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
-import { filtroPrecoAtivo, listarPromocoesPorLoja } from "../precos/precos.service.js";
+import { filtroPrecoAtivo, listarPromocoesPorLoja, situacaoPanfletos } from "../precos/precos.service.js";
 import { calcularRankingMercados } from "../precos/ranking-mercados.service.js";
 import { LojaNaoEncontradaError, compararMercados } from "../precos/comparar-mercados.service.js";
 
@@ -15,10 +15,14 @@ export async function lojasRoutes(app: FastifyInstance) {
     "/lojas",
     { schema: { querystring: z.object({ ativas: z.enum(["true", "false"]).optional() }) } },
     async (request) => {
-      return request.server.prisma.loja.findMany({
-        where: request.query.ativas === "true" ? { precos: { some: filtroPrecoAtivo() } } : undefined,
-        orderBy: { nomeRaw: "asc" },
-      });
+      const [lojas, situacao] = await Promise.all([
+        request.server.prisma.loja.findMany({
+          where: request.query.ativas === "true" ? { precos: { some: filtroPrecoAtivo() } } : undefined,
+          orderBy: { nomeRaw: "asc" },
+        }),
+        situacaoPanfletos(),
+      ]);
+      return lojas.map((loja) => ({ ...loja, ...situacao(loja.id) }));
     },
   );
 
