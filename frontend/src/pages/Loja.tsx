@@ -28,6 +28,11 @@ export function LojaPagina() {
       </Link>
       <h1 className="mt-2 mb-2 text-lg font-bold text-gray-900">🏪 {loja?.nomeRaw ?? "Mercado"}</h1>
       {loja?.enderecoRaw && <EnderecosLoja enderecoRaw={loja.enderecoRaw} />}
+      {id && (
+        <Link to={`/comparar?a=${id}`} className="mt-2 inline-block text-sm font-medium text-violet-700">
+          ⚖️ Comparar com outro mercado
+        </Link>
+      )}
 
       {carregando && <p className="mt-4 text-sm text-gray-500">Carregando...</p>}
       {!carregando && promocoes.length === 0 && (
