@@ -1,0 +1,57 @@
+# Compose de produção — usado na VPS, ao lado do nginx do host (Certbot) que
+# expõe https://13.140.39.163.sslip.io/sistemas/feira/ (ver
+# /etc/nginx/sites-available/planicie). Diferente do docker-compose.yml (dev):
+# usa os estágios "prod" dos Dockerfiles (build + nginx estático no frontend,
+# build compilado no backend) e publica só em 127.0.0.1, já que quem recebe
+# tráfego externo é o nginx do host, não os containers diretamente.
+#
+# Uso: docker compose -f docker-compose.prod.yml --env-file .env.prod up -d --build
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: feira_prod_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-feira}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no .env.prod}
+      POSTGRES_DB: ${POSTGRES_DB:-feira}
+    volumes:
+      - feira_prod_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-feira} -d ${POSTGRES_DB:-feira}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      target: prod
+    container_name: feira_prod_backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?defina DATABASE_URL no .env.prod}
+      NODE_ENV: production
+      PORT: "3333"
+    # "start" (package.json) só roda o server já buildado — quem aplica as
+    # migrations no deploy é este comando, não o script "dev".
+    command: sh -c "npx prisma migrate deploy && node dist/server.js"
+    ports:
+      - "127.0.0.1:${FEIRA_BACKEND_PORT:-3001}:3333"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      target: prod
+    container_name: feira_prod_frontend
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${FEIRA_FRONTEND_PORT:-8081}:80"
+    depends_on:
+      - backend
+
+volumes:
+  feira_prod_pgdata:
