@@ -100,6 +100,10 @@ async function buscarFolhetoJaImportado(
   return folheto ? { folhetoId: folheto.id, lojaId: folheto.lojaId, jaImportado: true, itens: [] } : null;
 }
 
+// O padrão do Prisma (5 s) não cabe num panfleto grande: cada item faz uma busca por similaridade
+// (pg_trgm) contra os produtos existentes. O Ofertão do Atacadão (198 itens) estourou os 5 s na VPS.
+const TIMEOUT_TRANSACAO_IMPORT_MS = 120_000;
+
 // Importação all-or-nothing: toda resolução de quantidade/unidade é validada antes de abrir a
 // transação; se qualquer item falhar, nada é gravado.
 export async function importarFolheto(input: ImportFolhetoInput, arquivoJson?: string): Promise<ImportResult> {
@@ -230,5 +234,5 @@ export async function importarFolheto(input: ImportFolhetoInput, arquivoJson?: s
     }
 
     return { folhetoId: folheto.id, lojaId: loja.id, jaImportado: false, itens: resultadoItens };
-  });
+  }, { timeout: TIMEOUT_TRANSACAO_IMPORT_MS });
 }
