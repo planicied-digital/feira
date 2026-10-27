@@ -39,6 +39,9 @@ services:
       DATABASE_URL: postgresql://${POSTGRES_USER:-feira}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-feira}?schema=public
       NODE_ENV: production
       PORT: "3333"
+      # Exigido no POST /import (sem ele, o backend em produção recusa importações).
+      # scripts/deploy-vps.sh gera um aleatório no .env.prod se não existir.
+      IMPORT_TOKEN: ${IMPORT_TOKEN:-}
     # "start" (package.json) só roda o server já buildado — quem aplica as
     # migrations no deploy é este comando, não o script "dev".
     command: sh -c "npx prisma migrate deploy && node dist/server.js"

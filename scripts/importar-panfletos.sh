@@ -4,6 +4,8 @@
 # quando aquele JSON já entrou antes. Pode rodar quantas vezes quiser, local ou na VPS.
 #
 # Uso: sh scripts/importar-panfletos.sh [URL_DA_API]   (padrão: http://localhost:3333)
+# Se a API exigir token (produção), passe-o em IMPORT_TOKEN:
+#   IMPORT_TOKEN=... sh scripts/importar-panfletos.sh https://.../sistemas/feira/api
 set -eu
 
 API_URL="${1:-http://localhost:3333}"
@@ -20,6 +22,7 @@ for arquivo in panfleto-*.json; do
   status=$(curl -sS -o "$resposta" -w '%{http_code}' -X POST \
     "$API_URL/import?arquivo_json=$arquivo" \
     -H 'Content-Type: application/json; charset=utf-8' \
+    -H "Authorization: Bearer ${IMPORT_TOKEN:-}" \
     --data-binary "@$arquivo") || status="000"
 
   case "$status" in
