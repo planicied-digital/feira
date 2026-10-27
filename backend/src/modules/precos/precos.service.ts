@@ -27,7 +27,7 @@ export interface ProdutoComPrecos {
   precos: PrecoResultado[];
 }
 
-function filtroPrecoAtivo() {
+export function filtroPrecoAtivo() {
   const hoje = new Date();
   hoje.setUTCHours(0, 0, 0, 0);
 

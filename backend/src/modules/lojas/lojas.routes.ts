@@ -1,16 +1,26 @@
 import type { FastifyInstance } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
-import { listarPromocoesPorLoja } from "../precos/precos.service.js";
+import { filtroPrecoAtivo, listarPromocoesPorLoja } from "../precos/precos.service.js";
 import { calcularRankingMercados } from "../precos/ranking-mercados.service.js";
 import { LojaNaoEncontradaError, compararMercados } from "../precos/comparar-mercados.service.js";
 
 const diasSchema = z.coerce.number().int().min(7).max(365).default(90);
 
 export async function lojasRoutes(app: FastifyInstance) {
-  app.get("/lojas", async (request) => {
-    return request.server.prisma.loja.findMany({ orderBy: { nomeRaw: "asc" } });
-  });
+  // ?ativas=true: só mercados com pelo menos um preço válido agora (mesma regra de validade da
+  // busca — ver filtroPrecoAtivo). Sem o parâmetro, lista todos: a página do mercado e a comparação
+  // lado a lado trabalham com histórico e precisam dos que estão sem panfleto atual também.
+  app.withTypeProvider<ZodTypeProvider>().get(
+    "/lojas",
+    { schema: { querystring: z.object({ ativas: z.enum(["true", "false"]).optional() }) } },
+    async (request) => {
+      return request.server.prisma.loja.findMany({
+        where: request.query.ativas === "true" ? { precos: { some: filtroPrecoAtivo() } } : undefined,
+        orderBy: { nomeRaw: "asc" },
+      });
+    },
+  );
 
   app.withTypeProvider<ZodTypeProvider>().get(
     "/lojas/ranking",

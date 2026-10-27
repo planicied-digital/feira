@@ -173,8 +173,8 @@ export function listarProdutosPorCategoria(slug: string): Promise<ProdutoComPrec
   return requisitar(`/categorias/${encodeURIComponent(slug)}/produtos`);
 }
 
-export function listarLojas(): Promise<Loja[]> {
-  return requisitar(`/lojas`);
+export function listarLojas(opcoes?: { apenasComPanfletoAtual?: boolean }): Promise<Loja[]> {
+  return requisitar(opcoes?.apenasComPanfletoAtual ? `/lojas?ativas=true` : `/lojas`);
 }
 
 export function listarPromocoesPorLoja(id: string): Promise<PromocaoLoja[]> {
