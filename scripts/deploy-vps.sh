@@ -22,6 +22,14 @@ if [ -f .deploy-prod ]; then
   porta=$(sed -n 's/^FEIRA_PORT=//p' .env.prod)
   API_URL="http://127.0.0.1:${porta:-8091}/sistemas/feira/api"
   echo "stack: prod"
+  # Gera o token do POST /import na primeira vez — sem ele o backend prod recusa importações.
+  if [ -z "$(sed -n 's/^IMPORT_TOKEN=//p' .env.prod)" ]; then
+    sed -i '/^IMPORT_TOKEN=/d' .env.prod
+    echo "IMPORT_TOKEN=$(openssl rand -hex 32)" >> .env.prod
+    echo "IMPORT_TOKEN gerado em .env.prod"
+  fi
+  IMPORT_TOKEN=$(sed -n 's/^IMPORT_TOKEN=//p' .env.prod)
+  export IMPORT_TOKEN
   docker compose -f docker-compose.prod.yml --env-file .env.prod up -d --build
   CONTAINER_BACKEND=feira_prod_backend
 else
