@@ -30,7 +30,14 @@ export interface ProdutoComPrecos {
   precos: PrecoResultado[];
 }
 
-export interface Loja {
+// panfletoAtual: tem oferta válida agora (mesma regra da busca); panfletoValidoAte: até quando vale
+// (ou valeu) o panfleto mais recente — null se a loja nunca teve preço importado.
+export interface SituacaoPanfleto {
+  panfletoAtual: boolean;
+  panfletoValidoAte: string | null;
+}
+
+export interface Loja extends SituacaoPanfleto {
   id: string;
   nomeRaw: string;
   enderecoRaw: string | null;
@@ -182,7 +189,7 @@ export function listarPromocoesPorLoja(id: string): Promise<PromocaoLoja[]> {
 }
 
 export interface RankingLoja {
-  loja: { id: string; nomeRaw: string };
+  loja: { id: string; nomeRaw: string } & SituacaoPanfleto;
   comparacoes: number;
   vitorias: number;
   percentual: number;
@@ -216,8 +223,8 @@ export interface ItemComparacao {
 
 export interface ComparacaoMercados {
   dias: number;
-  lojaA: { id: string; nomeRaw: string };
-  lojaB: { id: string; nomeRaw: string };
+  lojaA: { id: string; nomeRaw: string } & SituacaoPanfleto;
+  lojaB: { id: string; nomeRaw: string } & SituacaoPanfleto;
   vitoriasA: number;
   vitoriasB: number;
   empates: number;

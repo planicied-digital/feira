@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { SeloPanfletoVencido } from "../components/SeloPanfletoVencido";
 import { buscarRankingMercados, type RankingLoja, type RankingMercados } from "../lib/api";
 
 const JANELAS = [30, 90, 365] as const;
@@ -20,9 +21,12 @@ function LinhaRanking({ item, posicao }: { item: RankingLoja; posicao: number | 
       <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-gray-100">
         <div className="h-full rounded-full bg-emerald-500" style={{ width: `${item.percentual}%` }} />
       </div>
-      <p className="mt-1 text-xs text-gray-500">
-        mais barato em {item.vitorias} de {item.comparacoes} {item.comparacoes === 1 ? "comparação" : "comparações"}
-      </p>
+      <div className="mt-1 flex flex-wrap items-center justify-between gap-1">
+        <p className="text-xs text-gray-500">
+          mais barato em {item.vitorias} de {item.comparacoes} {item.comparacoes === 1 ? "comparação" : "comparações"}
+        </p>
+        <SeloPanfletoVencido situacao={item.loja} />
+      </div>
     </Link>
   );
 }
@@ -81,6 +85,8 @@ export function Ranking() {
             Baseado em {ranking.comparacoes} {ranking.comparacoes === 1 ? "comparação" : "comparações"} de{" "}
             {ranking.produtos} {ranking.produtos === 1 ? "produto" : "produtos"}. Com poucos panfletos por mercado, a
             posição pode mudar bastante a cada nova importação.
+            {ranking.lojas.some((l) => !l.loja.panfletoAtual) &&
+              " Mercados com “panfleto vencido” não têm ofertas valendo agora — a posição deles vem de preços antigos."}
           </p>
 
           <div className="mt-3 space-y-2">

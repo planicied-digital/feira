@@ -42,6 +42,52 @@ export function filtroPrecoAtivo() {
   };
 }
 
+export interface SituacaoPanfleto {
+  panfletoAtual: boolean;
+  // Até quando vale (ou valeu) o panfleto mais recente da loja: maior data de fim entre os panfletos
+  // com data, ou extração + DIAS_LIMITE_ENQUANTO_ESTOQUE nos "enquanto durar o estoque".
+  panfletoValidoAte: string | null;
+}
+
+const SEM_PANFLETO: SituacaoPanfleto = { panfletoAtual: false, panfletoValidoAte: null };
+
+// Ranking e comparação usam histórico — sem isso, um mercado cujo último panfleto venceu há meses
+// aparece igual a um com ofertas valendo hoje. "Atual" segue exatamente filtroPrecoAtivo.
+export async function situacaoPanfletos(): Promise<(lojaId: string) => SituacaoPanfleto> {
+  const [comData, enquantoEstoque, ativas] = await Promise.all([
+    prisma.preco.groupBy({
+      by: ["lojaId"],
+      where: { tipoValidade: TipoValidade.DATA_DEFINIDA },
+      _max: { validadeFim: true },
+    }),
+    prisma.preco.groupBy({
+      by: ["lojaId"],
+      where: { tipoValidade: TipoValidade.ENQUANTO_DURAR_ESTOQUE },
+      _max: { extraidoEm: true },
+    }),
+    prisma.preco.findMany({ where: filtroPrecoAtivo(), select: { lojaId: true }, distinct: ["lojaId"] }),
+  ]);
+
+  const validoAte = new Map<string, Date>();
+  const considerar = (lojaId: string, data: Date | null) => {
+    if (!data) return;
+    const atual = validoAte.get(lojaId);
+    if (!atual || data > atual) validoAte.set(lojaId, data);
+  };
+  for (const g of comData) considerar(g.lojaId, g._max.validadeFim);
+  for (const g of enquantoEstoque) {
+    const extraido = g._max.extraidoEm;
+    if (extraido) considerar(g.lojaId, new Date(extraido.getTime() + DIAS_LIMITE_ENQUANTO_ESTOQUE * 86_400_000));
+  }
+
+  const lojasAtivas = new Set(ativas.map((a) => a.lojaId));
+  return (lojaId) => {
+    const data = validoAte.get(lojaId);
+    if (!data) return SEM_PANFLETO;
+    return { panfletoAtual: lojasAtivas.has(lojaId), panfletoValidoAte: data.toISOString().slice(0, 10) };
+  };
+}
+
 // Uma loja pode reimportar um panfleto e gerar um novo registro de preço para o mesmo produto —
 // sem isso, o preço antigo (possivelmente já trocado) continuaria aparecendo ao lado do novo como
 // se fosse outra oferta da mesma loja. Mantém só o registro mais recente por chave.

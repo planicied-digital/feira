@@ -10,6 +10,8 @@ import {
   type UnidadePadrao,
 } from "../lib/api";
 import { formatarMoeda, formatarPrecoPorUnidade } from "../lib/formatacao";
+import { SeloPanfletoVencido, textoPanfletoVencido } from "../components/SeloPanfletoVencido";
+import { formatarDataCurta } from "../lib/tempoRelativo";
 
 const JANELAS = [30, 90, 365] as const;
 
@@ -25,12 +27,21 @@ function Lado({ preco, unidade, vencedor }: { preco: PrecoLado; unidade: Unidade
   );
 }
 
+// A comparação usa a leva mais recente em que os DOIS anunciaram o produto — que pode ser antiga
+// mesmo pra um mercado com panfleto atual. A data deixa isso explícito em cada linha.
+function dataDaLeva(item: ItemComparacao): string {
+  return item.a.extraidoEm > item.b.extraidoEm ? item.a.extraidoEm : item.b.extraidoEm;
+}
+
 function LinhaComparacao({ item }: { item: ItemComparacao }) {
   return (
     <li className="rounded-lg border border-gray-200 bg-white p-3 shadow-sm">
-      <Link to={`/produtos/${item.produto.id}`} className="text-sm font-medium text-gray-900">
-        {item.produto.nomeCanonico}
-      </Link>
+      <div className="flex items-baseline justify-between gap-2">
+        <Link to={`/produtos/${item.produto.id}`} className="min-w-0 text-sm font-medium text-gray-900">
+          {item.produto.nomeCanonico}
+        </Link>
+        <span className="shrink-0 text-[11px] text-gray-400">preços de {formatarDataCurta(dataDaLeva(item))}</span>
+      </div>
       <div className="mt-2 grid grid-cols-2 gap-2">
         <Lado preco={item.a} unidade={item.produto.unidadePadrao} vencedor={item.maisBarato === "a"} />
         <Lado preco={item.b} unidade={item.produto.unidadePadrao} vencedor={item.maisBarato === "b"} />
@@ -62,11 +73,24 @@ function SeletorLoja({
         className="w-full truncate rounded border border-gray-300 bg-white px-2 py-2 text-sm"
       >
         <option value="">Escolha…</option>
-        {lojas.map((l) => (
-          <option key={l.id} value={l.id} disabled={l.id === outra}>
-            {l.nomeRaw}
-          </option>
-        ))}
+        <optgroup label="Com panfleto válido">
+          {lojas
+            .filter((l) => l.panfletoAtual)
+            .map((l) => (
+              <option key={l.id} value={l.id} disabled={l.id === outra}>
+                {l.nomeRaw}
+              </option>
+            ))}
+        </optgroup>
+        <optgroup label="Panfleto vencido">
+          {lojas
+            .filter((l) => !l.panfletoAtual)
+            .map((l) => (
+              <option key={l.id} value={l.id} disabled={l.id === outra}>
+                {l.nomeRaw} ({textoPanfletoVencido(l).replace("panfleto ", "")})
+              </option>
+            ))}
+        </optgroup>
       </select>
     </label>
   );
@@ -173,9 +197,25 @@ export function CompararMercados() {
             </p>
           </div>
 
+          {(!comparacao.lojaA.panfletoAtual || !comparacao.lojaB.panfletoAtual) && (
+            <p className="mt-2 rounded-lg bg-gray-100 p-2 text-xs text-gray-700">
+              {[comparacao.lojaA, comparacao.lojaB]
+                .filter((l) => !l.panfletoAtual)
+                .map((l) => `${l.nomeRaw}: ${textoPanfletoVencido(l)}`)
+                .join(" · ")}
+              . Os preços abaixo podem não valer mais na loja — veja a data em cada produto.
+            </p>
+          )}
+
           <div className="mt-3 grid grid-cols-2 gap-2 px-3 text-xs font-semibold text-gray-600">
-            <p className="truncate">{comparacao.lojaA.nomeRaw}</p>
-            <p className="truncate">{comparacao.lojaB.nomeRaw}</p>
+            <div className="min-w-0">
+              <p className="truncate">{comparacao.lojaA.nomeRaw}</p>
+              <SeloPanfletoVencido situacao={comparacao.lojaA} />
+            </div>
+            <div className="min-w-0">
+              <p className="truncate">{comparacao.lojaB.nomeRaw}</p>
+              <SeloPanfletoVencido situacao={comparacao.lojaB} />
+            </div>
           </div>
           <ul className="mt-1 space-y-2">
             {comparacao.itens.map((item) => (

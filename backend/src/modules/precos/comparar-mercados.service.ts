@@ -1,5 +1,6 @@
 import type { UnidadePadrao } from "@prisma/client";
 import { prisma } from "../../lib/prisma-client.js";
+import { situacaoPanfletos, type SituacaoPanfleto } from "./precos.service.js";
 import { agruparEmLevas, type PrecoLeva } from "./ranking-mercados.service.js";
 
 // Comparação lado a lado de dois mercados: mesma regra do ranking (só preços da mesma "leva", até 7
@@ -23,8 +24,8 @@ export interface ItemComparacao {
 
 export interface ComparacaoMercados {
   dias: number;
-  lojaA: { id: string; nomeRaw: string };
-  lojaB: { id: string; nomeRaw: string };
+  lojaA: { id: string; nomeRaw: string } & SituacaoPanfleto;
+  lojaB: { id: string; nomeRaw: string } & SituacaoPanfleto;
   vitoriasA: number;
   vitoriasB: number;
   empates: number;
@@ -36,13 +37,15 @@ interface PrecoComValor extends PrecoLeva {
 }
 
 export async function compararMercados(lojaAId: string, lojaBId: string, dias: number): Promise<ComparacaoMercados> {
-  const lojas = await prisma.loja.findMany({
-    where: { id: { in: [lojaAId, lojaBId] } },
-    select: { id: true, nomeRaw: true },
-  });
-  const lojaA = lojas.find((l) => l.id === lojaAId);
-  const lojaB = lojas.find((l) => l.id === lojaBId);
-  if (!lojaA || !lojaB) throw new LojaNaoEncontradaError("Mercado não encontrado");
+  const [lojas, situacao] = await Promise.all([
+    prisma.loja.findMany({ where: { id: { in: [lojaAId, lojaBId] } }, select: { id: true, nomeRaw: true } }),
+    situacaoPanfletos(),
+  ]);
+  const encontradaA = lojas.find((l) => l.id === lojaAId);
+  const encontradaB = lojas.find((l) => l.id === lojaBId);
+  if (!encontradaA || !encontradaB) throw new LojaNaoEncontradaError("Mercado não encontrado");
+  const lojaA = { ...encontradaA, ...situacao(lojaAId) };
+  const lojaB = { ...encontradaB, ...situacao(lojaBId) };
 
   const desde = new Date(Date.now() - dias * 24 * 60 * 60 * 1000);
   const registros = await prisma.preco.findMany({
