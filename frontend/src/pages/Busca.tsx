@@ -25,6 +25,9 @@ export function Busca() {
           >
             🛒 Montar lista de compras e comparar mercados
           </Link>
+          <Link to="/ranking" className="mt-2 block rounded-lg bg-amber-50 p-3 text-sm font-medium text-amber-800">
+            🏆 Ranking: qual mercado costuma ser mais barato
+          </Link>
           <CategoriaGrid />
           <LojaList />
         </>

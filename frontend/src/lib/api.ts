@@ -181,6 +181,26 @@ export function listarPromocoesPorLoja(id: string): Promise<PromocaoLoja[]> {
   return requisitar(`/lojas/${encodeURIComponent(id)}/produtos`);
 }
 
+export interface RankingLoja {
+  loja: { id: string; nomeRaw: string };
+  comparacoes: number;
+  vitorias: number;
+  percentual: number;
+  dadosSuficientes: boolean;
+}
+
+export interface RankingMercados {
+  dias: number;
+  comparacoes: number;
+  produtos: number;
+  minComparacoes: number;
+  lojas: RankingLoja[];
+}
+
+export function buscarRankingMercados(dias: number): Promise<RankingMercados> {
+  return requisitar(`/lojas/ranking?dias=${dias}`);
+}
+
 export function compararListaCompras(itens: string[]): Promise<ResultadoListaCompras> {
   return requisitar(`/lista-compras/comparar`, { method: "POST", body: JSON.stringify({ itens }) });
 }
