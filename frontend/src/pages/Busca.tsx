@@ -28,6 +28,9 @@ export function Busca() {
           <Link to="/ranking" className="mt-2 block rounded-lg bg-amber-50 p-3 text-sm font-medium text-amber-800">
             🏆 Ranking: qual mercado costuma ser mais barato
           </Link>
+          <Link to="/comparar" className="mt-2 block rounded-lg bg-violet-50 p-3 text-sm font-medium text-violet-800">
+            ⚖️ Comparar dois mercados lado a lado
+          </Link>
           <CategoriaGrid />
           <LojaList />
         </>

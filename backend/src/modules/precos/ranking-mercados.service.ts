@@ -30,7 +30,7 @@ export interface RankingMercados {
   lojas: RankingLoja[];
 }
 
-interface PrecoLeva {
+export interface PrecoLeva {
   produtoCanonicoId: string;
   lojaId: string;
   precoPorUnidadePadrao: number;
@@ -40,7 +40,7 @@ interface PrecoLeva {
 // Agrupa os preços de UM produto (já em ordem decrescente de extração) em levas: cada leva começa
 // no preço mais recente ainda não agrupado e junta tudo até 7 dias antes dele. Dentro da leva, só
 // o preço mais recente de cada loja conta (reimportação do mesmo panfleto não vira dois votos).
-function agruparEmLevas(precos: PrecoLeva[]): PrecoLeva[][] {
+export function agruparEmLevas(precos: PrecoLeva[]): PrecoLeva[][] {
   const levas: PrecoLeva[][] = [];
   let atual: PrecoLeva[] = [];
   let inicioLeva = 0;

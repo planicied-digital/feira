@@ -201,6 +201,34 @@ export function buscarRankingMercados(dias: number): Promise<RankingMercados> {
   return requisitar(`/lojas/ranking?dias=${dias}`);
 }
 
+export interface PrecoLado {
+  preco: number;
+  precoPorUnidadePadrao: number;
+  extraidoEm: string;
+}
+
+export interface ItemComparacao {
+  produto: { id: string; nomeCanonico: string; marca: string | null; unidadePadrao: UnidadePadrao };
+  a: PrecoLado;
+  b: PrecoLado;
+  maisBarato: "a" | "b" | "empate";
+}
+
+export interface ComparacaoMercados {
+  dias: number;
+  lojaA: { id: string; nomeRaw: string };
+  lojaB: { id: string; nomeRaw: string };
+  vitoriasA: number;
+  vitoriasB: number;
+  empates: number;
+  itens: ItemComparacao[];
+}
+
+export function compararMercados(a: string, b: string, dias: number): Promise<ComparacaoMercados> {
+  const params = new URLSearchParams({ a, b, dias: String(dias) });
+  return requisitar(`/lojas/comparar?${params}`);
+}
+
 export function compararListaCompras(itens: string[]): Promise<ResultadoListaCompras> {
   return requisitar(`/lista-compras/comparar`, { method: "POST", body: JSON.stringify({ itens }) });
 }
