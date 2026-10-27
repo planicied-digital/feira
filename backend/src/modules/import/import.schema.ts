@@ -43,6 +43,12 @@ export const importFolhetoSchema = z.object({
   itens: z.array(itemSchema).min(1),
 });
 
-export type ImportFolhetoInput = z.infer<typeof importFolhetoSchema>;
+// Nome do JSON em scripts/ que originou a importação — chave de idempotência usada por
+// scripts/importar-panfletos.sh. Opcional para não quebrar importações manuais avulsas.
+export const importQuerySchema = z.object({
+  arquivo_json: z.string().min(1).optional(),
+});
+
+export type ImportFolhetoInput =z.infer<typeof importFolhetoSchema>;
 export type ImportItemInput = z.infer<typeof itemSchema>;
 export type ImportValidadeInput = z.infer<typeof validadeSchema>;

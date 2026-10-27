@@ -1,0 +1,37 @@
+name: Deploy
+
+# Roda depois que o CI passa num push na master (ou seja, após cada merge de PR). A chave
+# VPS_SSH_KEY só consegue executar o forced command configurado na VPS (ver scripts/deploy-vps.sh),
+# então o comando de fato não vem daqui — este workflow só abre a conexão e mostra a saída.
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: false
+
+jobs:
+  vps:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configura acesso SSH
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$VPS_KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Deploy (git pull, rebuild do que mudou, importa panfletos novos)
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: ssh -i ~/.ssh/deploy_key -o BatchMode=yes -o StrictHostKeyChecking=yes "root@$VPS_HOST"
