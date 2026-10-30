@@ -75,7 +75,7 @@ function PanfletoOriginal({ panfleto, paginas }: { panfleto: PanfletoAtual; pagi
       <button
         type="button"
         onClick={() => setAberto(!aberto)}
-        className="flex w-full items-center justify-between text-left text-xs text-blue-700"
+        className="flex w-full items-center justify-between text-left text-xs text-primaria-700"
       >
         <span>
           📄 Panfleto original ({paginas.length} {paginas.length === 1 ? "página" : "páginas"}, {validade})
@@ -97,7 +97,7 @@ function PanfletoOriginal({ panfleto, paginas }: { panfleto: PanfletoAtual; pagi
                     className="aspect-[4/5] w-full rounded border border-gray-200 object-cover"
                   />
                 </a>
-                <a href={url} download={nomeDownload} className="mt-1 inline-block text-xs text-blue-700">
+                <a href={url} download={nomeDownload} className="mt-1 inline-block text-xs text-primaria-700">
                   ⬇ baixar
                 </a>
               </div>

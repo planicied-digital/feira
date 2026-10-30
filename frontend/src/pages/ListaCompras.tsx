@@ -32,7 +32,7 @@ export function ListaCompras() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
-      <Link to="/" className="text-sm text-blue-600">
+      <Link to="/" className="text-sm text-primaria-600">
         ← voltar
       </Link>
       <h1 className="mb-1 mt-2 text-xl font-bold text-gray-900">Lista de compras</h1>
@@ -45,12 +45,12 @@ export function ListaCompras() {
         onChange={(e) => setTexto(e.target.value)}
         placeholder={"arroz, feijão, óleo, sabão em pó"}
         rows={4}
-        className="w-full rounded-lg border border-gray-300 p-3 text-sm focus:border-blue-500 focus:outline-none"
+        className="w-full rounded-lg border border-gray-300 p-3 text-sm focus:border-primaria-500 focus:outline-none"
       />
       <button
         onClick={comparar}
         disabled={carregando || dividirItens(texto).length === 0}
-        className="mt-3 w-full rounded-lg bg-blue-600 py-2 text-sm font-semibold text-white disabled:bg-gray-300"
+        className="mt-3 w-full rounded-lg bg-primaria-600 py-2 text-sm font-semibold text-white disabled:bg-gray-300"
       >
         {carregando ? "Comparando..." : "Comparar"}
       </button>
@@ -60,7 +60,7 @@ export function ListaCompras() {
       {resultado && (
         <div className="mt-6 space-y-6">
           {resultado.itensNaoEncontrados.length > 0 && (
-            <p className="rounded-lg bg-amber-50 p-3 text-sm text-amber-800">
+            <p className="rounded-lg bg-destaque-50 p-3 text-sm text-destaque-800">
               Não encontramos oferta ativa para: {resultado.itensNaoEncontrados.join(", ")}.
             </p>
           )}

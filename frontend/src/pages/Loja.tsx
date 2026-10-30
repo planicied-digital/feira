@@ -23,13 +23,13 @@ export function LojaPagina() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
-      <Link to="/" className="text-sm text-emerald-700">
+      <Link to="/" className="text-sm text-primaria-700">
         ← voltar
       </Link>
       <h1 className="mt-2 mb-2 text-lg font-bold text-gray-900">🏪 {loja?.nomeRaw ?? "Mercado"}</h1>
       {loja?.enderecoRaw && <EnderecosLoja enderecoRaw={loja.enderecoRaw} />}
       {id && (
-        <Link to={`/comparar?a=${id}`} className="mt-2 inline-block text-sm font-medium text-violet-700">
+        <Link to={`/comparar?a=${id}`} className="mt-2 inline-block text-sm font-medium text-marinho-700">
           ⚖️ Comparar com outro mercado
         </Link>
       )}

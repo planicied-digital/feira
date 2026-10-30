@@ -40,7 +40,7 @@ export function SeloValidade({ tipoValidade, validadeFim, extraidoEm }: SeloVali
     const dataFormatada = validadeFim ? formatarDataCurta(validadeFim) : "?";
     return (
       <span
-        className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-1 text-xs font-medium text-emerald-800"
+        className="inline-flex items-center gap-1 rounded-full bg-primaria-100 px-2 py-1 text-xs font-medium text-primaria-800"
         aria-label={`Promoção válida até ${dataFormatada}`}
       >
         <IconeCalendario />
@@ -55,7 +55,7 @@ export function SeloValidade({ tipoValidade, validadeFim, extraidoEm }: SeloVali
   return (
     <div className="inline-flex flex-col items-end gap-0.5">
       <span
-        className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-1 text-xs font-medium text-amber-800"
+        className="inline-flex items-center gap-1 rounded-full bg-destaque-100 px-2 py-1 text-xs font-medium text-destaque-800"
         aria-label={`Promoção enquanto durar o estoque, atualizada ${tempoRelativo(extraidoEm)}`}
       >
         <IconeEstoque />
@@ -63,7 +63,7 @@ export function SeloValidade({ tipoValidade, validadeFim, extraidoEm }: SeloVali
       </span>
       <span className="text-[11px] text-gray-500">atualizado {tempoRelativo(extraidoEm)}</span>
       {envelhecido ? (
-        <span className="inline-flex items-center gap-1 text-[11px] font-medium text-amber-700">
+        <span className="inline-flex items-center gap-1 text-[11px] font-medium text-destaque-700">
           <IconeAlerta />
           pode já ter acabado — confirme com a loja antes de ir
         </span>

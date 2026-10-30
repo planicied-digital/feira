@@ -17,12 +17,12 @@ const JANELAS = [30, 90, 365] as const;
 
 function Lado({ preco, unidade, vencedor }: { preco: PrecoLado; unidade: UnidadePadrao; vencedor: boolean }) {
   return (
-    <div className={`rounded p-2 ${vencedor ? "bg-emerald-50 ring-1 ring-emerald-500" : "bg-gray-50"}`}>
-      <p className={`text-sm font-bold ${vencedor ? "text-emerald-700" : "text-gray-900"}`}>
+    <div className={`rounded p-2 ${vencedor ? "bg-primaria-50 ring-1 ring-primaria-500" : "bg-gray-50"}`}>
+      <p className={`text-sm font-bold ${vencedor ? "text-primaria-700" : "text-gray-900"}`}>
         {formatarMoeda(preco.preco)}
       </p>
       <p className="text-xs text-gray-500">{formatarPrecoPorUnidade(preco.precoPorUnidadePadrao, unidade)}</p>
-      {vencedor && <p className="mt-0.5 text-[11px] font-medium text-emerald-700">mais barato</p>}
+      {vencedor && <p className="mt-0.5 text-[11px] font-medium text-primaria-700">mais barato</p>}
     </div>
   );
 }
@@ -134,7 +134,7 @@ export function CompararMercados() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
-      <Link to="/" className="text-sm text-emerald-700">
+      <Link to="/" className="text-sm text-primaria-700">
         ← voltar
       </Link>
       <h1 className="mt-2 text-lg font-bold text-gray-900">⚖️ Comparar dois mercados</h1>
@@ -162,7 +162,7 @@ export function CompararMercados() {
             key={j}
             onClick={() => setDias(j)}
             className={`rounded-full px-3 py-1 text-xs font-medium ${
-              dias === j ? "bg-emerald-600 text-white" : "bg-gray-100 text-gray-700"
+              dias === j ? "bg-primaria-600 text-white" : "bg-gray-100 text-gray-700"
             }`}
           >
             {j === 365 ? "último ano" : `${j} dias`}
@@ -181,7 +181,7 @@ export function CompararMercados() {
 
       {!carregando && comparacao && comparacao.itens.length > 0 && (
         <>
-          <div className="mt-4 rounded-lg bg-amber-50 p-3 text-sm text-amber-900">
+          <div className="mt-4 rounded-lg bg-destaque-50 p-3 text-sm text-destaque-900">
             <p>
               <strong>{comparacao.lojaA.nomeRaw}</strong> mais barato em <strong>{comparacao.vitoriasA}</strong>;{" "}
               <strong>{comparacao.lojaB.nomeRaw}</strong> em <strong>{comparacao.vitoriasB}</strong>
@@ -192,7 +192,7 @@ export function CompararMercados() {
               )}
               .
             </p>
-            <p className="mt-1 text-xs text-amber-800">
+            <p className="mt-1 text-xs text-destaque-800">
               {comparacao.itens.length} {comparacao.itens.length === 1 ? "produto em comum" : "produtos em comum"}
             </p>
           </div>

@@ -36,7 +36,7 @@ export function CategoriaPagina() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
-      <Link to="/" className="text-sm text-emerald-700">
+      <Link to="/" className="text-sm text-primaria-700">
         ← voltar
       </Link>
       <h1 className="mt-2 mb-4 text-lg font-bold text-gray-900">
@@ -65,8 +65,8 @@ export function CategoriaPagina() {
                 type="button"
                 aria-pressed={visualizacao === opcao}
                 onClick={() => setVisualizacao(opcao)}
-                className={`px-2.5 py-1 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-500 ${
-                  visualizacao === opcao ? "bg-emerald-600 text-white" : "bg-white text-gray-600"
+                className={`px-2.5 py-1 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primaria-500 ${
+                  visualizacao === opcao ? "bg-primaria-600 text-white" : "bg-white text-gray-600"
                 }`}
               >
                 {opcao === "produto" ? "Produto" : "Supermercado"}

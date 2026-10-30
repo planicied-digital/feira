@@ -23,7 +23,7 @@ export function ProdutoDetalhe() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
-      <Link to="/" className="text-sm text-emerald-700">
+      <Link to="/" className="text-sm text-primaria-700">
         ← voltar para a busca
       </Link>
       <p className="mt-2 text-xs font-medium uppercase tracking-wide text-gray-500">Onde encontrar</p>

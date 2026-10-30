@@ -19,7 +19,7 @@ export function EnderecosLoja({ enderecoRaw }: EnderecosLojaProps) {
             href={linkGoogleMaps(item.endereco)}
             target="_blank"
             rel="noopener noreferrer"
-            className="whitespace-nowrap text-emerald-700 underline"
+            className="whitespace-nowrap text-primaria-700 underline"
           >
             ver no mapa ↗
           </a>

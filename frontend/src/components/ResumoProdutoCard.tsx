@@ -63,7 +63,7 @@ export function ResumoProdutoCard({ produto, imagemUrl }: ResumoProdutoCardProps
             em {faixa.quantidadeMercados} {faixa.quantidadeMercados === 1 ? "mercado" : "mercados"}
           </p>
           {faixa.economia && (
-            <span className="mt-2 inline-block rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800">
+            <span className="mt-2 inline-block rounded-full bg-destaque-100 px-2.5 py-0.5 text-xs font-medium text-destaque-800">
               Economize até {formatar(faixa.economia.valor)} ({faixa.economia.percentual}%)
             </span>
           )}

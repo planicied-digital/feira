@@ -19,10 +19,10 @@ export function OrdenacaoChips({ valor, aoMudar }: OrdenacaoChipsProps) {
             role="radio"
             aria-checked={ativo}
             onClick={() => aoMudar(ordenacao)}
-            className={`rounded-full border px-2.5 py-1 text-xs font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-1 ${
+            className={`rounded-full border px-2.5 py-1 text-xs font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-primaria-500 focus-visible:ring-offset-1 ${
               ativo
-                ? "border-emerald-400 bg-emerald-50 text-emerald-800"
-                : "border-emerald-200 bg-white text-emerald-700 active:bg-emerald-50"
+                ? "border-primaria-400 bg-primaria-50 text-primaria-800"
+                : "border-primaria-200 bg-white text-primaria-700 active:bg-primaria-50"
             }`}
           >
             {ROTULO_ORDENACAO[ordenacao]}
