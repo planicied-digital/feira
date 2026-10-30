@@ -1,0 +1,22 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-10-29 at 05.34.07.jpeg + 05.34.08 + 05.34.09",
+  "estabelecimento": {"nome_raw": "São Jorge Supermercado", "endereco_raw": "Loja 1: Av. Carlos Pereira de Melo, 3510 - Caranã | Loja 2: Av. Centenário, 1491 - Centenário", "rede": null},
+  "validade": {"tipo_validade": "data_definida", "inicio": "2026-10-29", "fim": "2026-10-29"},
+  "extraido_em": "2026-10-29T21:30:00-04:00",
+  "itens": [
+    {"nome_raw": "Costela Dianteira KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 22.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Cerveja Amstel Lager Puro Malte Lata 269ml", "marca": "Amstel", "categoria_sugerida": "cerveja", "quantidade": 269, "unidade": "ml", "preco": 2.79, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Músculo KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 32.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Chuleta Ripa KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 39.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Costela Mindinha KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 24.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Paleta com Osso KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 26.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Bistecão do Acém KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 28.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Cupim KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 38.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Picanha KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 81.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Filé Mignon KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 65.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Chã de Dentro KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 42.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Chã de Fora KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 39.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Patinho KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 41.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Bisteca Traseira KG", "marca": null, "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 36.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97}
+  ]
+}
