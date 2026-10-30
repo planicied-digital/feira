@@ -2,7 +2,8 @@
 # Deploy na VPS, disparado pelo workflow .github/workflows/deploy.yml depois de cada merge na master.
 #
 # Não é chamado direto: a chave de deploy do GitHub Actions só pode executar o "forced command"
-# configurado em /root/.ssh/authorized_keys da VPS, que faz o git pull ANTES de chamar este script
+# configurado em /home/deploy/.ssh/authorized_keys da VPS (conta "deploy", dona de /opt/feira e do
+# grupo docker — sem login de root), que faz o git pull ANTES de chamar este script
 # (assim sempre roda a versão nova dele) e passa o commit anterior como argumento:
 #
 #   command="cd /opt/feira && ANTES=$(git rev-parse HEAD) && git pull --ff-only -q && sh scripts/deploy-vps.sh $ANTES",restrict ssh-ed25519 AAAA... feira-gha-deploy
