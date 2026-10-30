@@ -36,8 +36,14 @@ export interface ResultadoListaCompras {
 // usada na tela de busca — pega o produto de menor preço por unidade entre os candidatos com nome
 // parecido, e dedupe por loja mantendo a oferta mais barata de cada uma.
 async function buscarMelhorCorrespondencia(termo: string): Promise<ItemListaEncontrado | null> {
+  // buscarProdutos devolve em ordem de relevância — aqui o critério é o menor preço por unidade
+  // (o primeiro preço de cada produto já é o mais barato dele).
   const produtos = await buscarProdutos(termo);
-  const melhor = produtos[0];
+  const melhor = produtos.reduce<(typeof produtos)[number] | undefined>(
+    (atual, produto) =>
+      !atual || produto.precos[0]!.precoPorUnidadePadrao < atual.precos[0]!.precoPorUnidadePadrao ? produto : atual,
+    undefined,
+  );
   if (!melhor) return null;
 
   const precosPorLoja: ItemListaEncontrado["precosPorLoja"] = [];
