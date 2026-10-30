@@ -1,16 +1,28 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { BuscaInput } from "../components/BuscaInput";
 import { CategoriaGrid } from "../components/CategoriaGrid";
 import { LojaList } from "../components/LojaList";
+import { OrdenacaoChips } from "../components/OrdenacaoChips";
 import { ResultadosProdutos } from "../components/ResultadosProdutos";
 import { useBuscaProdutos } from "../hooks/useBuscaProdutos";
+import { lerOrdenacao, ordenarProdutos, type Ordenacao } from "../lib/ordenarProdutos";
 
 export function Busca() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [termo, setTermo] = useState(searchParams.get("q") ?? "");
   const { produtos, carregando, erro } = useBuscaProdutos(termo);
   const buscaVazia = !termo.trim();
+  const ordenacao = lerOrdenacao(searchParams.get("ordem"));
+  const produtosOrdenados = useMemo(() => ordenarProdutos(produtos, ordenacao, "busca"), [produtos, ordenacao]);
+
+  // O termo digitado não vai pra URL a cada tecla; ao escolher a ordem, grava os dois juntos pra o
+  // link compartilhado/recarregado reabrir a mesma busca na mesma ordem.
+  const mudarOrdenacao = (nova: Ordenacao) => {
+    const params: Record<string, string> = { q: termo };
+    if (nova !== "relevantes") params.ordem = nova;
+    setSearchParams(params, { replace: true });
+  };
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
@@ -43,9 +55,15 @@ export function Busca() {
         <p className="mt-4 text-sm text-gray-500">Nenhum resultado para "{termo}".</p>
       )}
 
+      {!buscaVazia && produtos.length > 0 && (
+        <div className="mt-4">
+          <OrdenacaoChips valor={ordenacao} aoMudar={mudarOrdenacao} />
+        </div>
+      )}
+
       {!buscaVazia && (
         <div className="mt-4">
-          <ResultadosProdutos produtos={produtos} />
+          <ResultadosProdutos produtos={produtosOrdenados} />
         </div>
       )}
     </div>

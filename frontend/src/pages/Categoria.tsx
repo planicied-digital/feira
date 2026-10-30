@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { BuscaInput } from "../components/BuscaInput";
+import { OrdenacaoChips } from "../components/OrdenacaoChips";
 import { ResultadosProdutos } from "../components/ResultadosProdutos";
 import { ResultadosPorLoja } from "../components/ResultadosPorLoja";
 import { listarCategorias, listarProdutosPorCategoria, type Categoria, type ProdutoComPrecos } from "../lib/api";
+import { lerOrdenacao, ordenarProdutos, type Ordenacao } from "../lib/ordenarProdutos";
 
-type Ordenacao = "preco" | "loja";
+type Visualizacao = "produto" | "supermercado";
 
 export function CategoriaPagina() {
   const { slug } = useParams<{ slug: string }>();
@@ -13,7 +15,13 @@ export function CategoriaPagina() {
   const [categoria, setCategoria] = useState<Categoria | null>(null);
   const [produtos, setProdutos] = useState<ProdutoComPrecos[]>([]);
   const [carregando, setCarregando] = useState(true);
-  const [ordenacao, setOrdenacao] = useState<Ordenacao>("preco");
+  const [visualizacao, setVisualizacao] = useState<Visualizacao>("produto");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const ordenacao = lerOrdenacao(searchParams.get("ordem"));
+  const produtosOrdenados = useMemo(() => ordenarProdutos(produtos, ordenacao, "categoria"), [produtos, ordenacao]);
+
+  const mudarOrdenacao = (nova: Ordenacao) =>
+    setSearchParams(nova === "relevantes" ? {} : { ordem: nova }, { replace: true });
 
   useEffect(() => {
     if (!slug) return;
@@ -48,28 +56,38 @@ export function CategoriaPagina() {
       )}
 
       {!carregando && produtos.length > 0 && (
-        <div className="mt-4 flex gap-2">
-          <button
-            onClick={() => setOrdenacao("preco")}
-            className={`rounded-full px-3 py-1 text-xs font-medium ${
-              ordenacao === "preco" ? "bg-emerald-600 text-white" : "bg-gray-100 text-gray-600"
-            }`}
-          >
-            Menor preço
-          </button>
-          <button
-            onClick={() => setOrdenacao("loja")}
-            className={`rounded-full px-3 py-1 text-xs font-medium ${
-              ordenacao === "loja" ? "bg-emerald-600 text-white" : "bg-gray-100 text-gray-600"
-            }`}
-          >
-            Supermercado
-          </button>
+        <div className="mt-4 flex items-center gap-2 text-xs text-gray-500">
+          <span>Ver por:</span>
+          <div className="inline-flex overflow-hidden rounded-md border border-gray-200">
+            {(["produto", "supermercado"] as const).map((opcao) => (
+              <button
+                key={opcao}
+                type="button"
+                aria-pressed={visualizacao === opcao}
+                onClick={() => setVisualizacao(opcao)}
+                className={`px-2.5 py-1 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-500 ${
+                  visualizacao === opcao ? "bg-emerald-600 text-white" : "bg-white text-gray-600"
+                }`}
+              >
+                {opcao === "produto" ? "Produto" : "Supermercado"}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {!carregando && produtos.length > 0 && visualizacao === "produto" && (
+        <div className="mt-3">
+          <OrdenacaoChips valor={ordenacao} aoMudar={mudarOrdenacao} />
         </div>
       )}
 
       <div className="mt-4">
-        {ordenacao === "preco" ? <ResultadosProdutos produtos={produtos} /> : <ResultadosPorLoja produtos={produtos} />}
+        {visualizacao === "produto" ? (
+          <ResultadosProdutos produtos={produtosOrdenados} />
+        ) : (
+          <ResultadosPorLoja produtos={produtos} />
+        )}
       </div>
     </div>
   );

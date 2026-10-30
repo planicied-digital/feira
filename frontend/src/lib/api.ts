@@ -28,6 +28,8 @@ export interface ProdutoComPrecos {
   marca: string | null;
   unidadePadrao: UnidadePadrao;
   precos: PrecoResultado[];
+  // Só na busca por texto: similaridade do nome com o termo (os resultados já vêm nessa ordem).
+  relevancia?: number;
 }
 
 // panfletoAtual: tem oferta válida agora (mesma regra da busca); panfletoValidoAte: até quando vale

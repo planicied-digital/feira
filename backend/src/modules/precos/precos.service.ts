@@ -26,6 +26,8 @@ export interface ProdutoComPrecos {
   marca: string | null;
   unidadePadrao: string;
   precos: PrecoResultado[];
+  // Só na busca por texto: similaridade (pg_trgm, 0–1) do nome com o termo buscado.
+  relevancia?: number;
 }
 
 export function filtroPrecoAtivo() {
@@ -122,10 +124,22 @@ function mapPreco(preco: {
   };
 }
 
+// Devolve os itens na ordem de `ids` (os que não estiverem lá são descartados). O findMany do
+// Prisma não garante ordem para `id IN (...)`, e a busca precisa manter a ordem de relevância.
+export function ordenarPelaOrdemDosIds<T extends { produtoCanonicoId: string }>(itens: T[], ids: string[]): T[] {
+  const porId = new Map(itens.map((item) => [item.produtoCanonicoId, item]));
+  return ids.flatMap((id) => porId.get(id) ?? []);
+}
+
+function menorPrecoPorUnidade(produto: ProdutoComPrecos): number {
+  return produto.precos[0]!.precoPorUnidadePadrao;
+}
+
 // Só a tabela `precos` é lida aqui — item.4 do plano: enquanto_durar_estoque some sem confirmação
 // recente (ver DIAS_LIMITE_ENQUANTO_ESTOQUE); data_definida some da busca normal quando validadeFim
 // já passou. Compartilhado pela busca por texto e pela navegação por categoria: ambas mostram os
-// mesmos cards, mesma regra de validade, mesmo ranking por preço por unidade padrão.
+// mesmos cards e a mesma regra de validade. Os preços de cada produto vêm do mais barato por
+// unidade padrão ao mais caro; a ordem dos produtos fica a cargo de quem chama.
 async function montarResultado(produtoCanonicoIds: string[]): Promise<ProdutoComPrecos[]> {
   if (produtoCanonicoIds.length === 0) return [];
 
@@ -151,22 +165,28 @@ async function montarResultado(produtoCanonicoIds: string[]): Promise<ProdutoCom
       marca: p.marca,
       unidadePadrao: p.unidadePadrao,
       precos: p.precos.map(mapPreco),
-    }))
-    .sort((a, b) => a.precos[0]!.precoPorUnidadePadrao - b.precos[0]!.precoPorUnidadePadrao);
+    }));
 }
 
+// Ordem de relevância (similaridade com o termo); o frontend reordena por preço/economia quando o
+// usuário escolhe outra ordenação.
 export async function buscarProdutos(termo: string): Promise<ProdutoComPrecos[]> {
   const termoNormalizado = normalizarNome(termo);
   if (!termoNormalizado) return [];
 
-  const candidatos = await prisma.$queryRaw<{ id: string }[]>`
-    SELECT id FROM produtos_canonicos
+  const candidatos = await prisma.$queryRaw<{ id: string; relevancia: number }[]>`
+    SELECT id, similarity(nome_normalizado, ${termoNormalizado}) AS relevancia FROM produtos_canonicos
     WHERE nome_normalizado % ${termoNormalizado}
        OR nome_normalizado ILIKE ${"%" + termoNormalizado + "%"}
-    ORDER BY similarity(nome_normalizado, ${termoNormalizado}) DESC
+    ORDER BY relevancia DESC
     LIMIT 20
   `;
-  return montarResultado(candidatos.map((c) => c.id));
+  const ids = candidatos.map((c) => c.id);
+  const relevanciaPorId = new Map(candidatos.map((c) => [c.id, Number(c.relevancia)]));
+  return ordenarPelaOrdemDosIds(await montarResultado(ids), ids).map((produto) => ({
+    ...produto,
+    relevancia: relevanciaPorId.get(produto.produtoCanonicoId),
+  }));
 }
 
 export async function listarProdutosPorCategoria(categoriaSlug: string): Promise<ProdutoComPrecos[]> {
@@ -174,7 +194,9 @@ export async function listarProdutosPorCategoria(categoriaSlug: string): Promise
     where: { categoria: { slug: categoriaSlug } },
     select: { id: true },
   });
-  return montarResultado(produtos.map((p) => p.id));
+  return (await montarResultado(produtos.map((p) => p.id))).sort(
+    (a, b) => menorPrecoPorUnidade(a) - menorPrecoPorUnidade(b),
+  );
 }
 
 export interface PromocaoLoja {
