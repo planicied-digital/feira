@@ -30,9 +30,7 @@ export function Busca() {
       {/* Faixa azul do topo com a busca dentro — a cara de "app de varejo" da paleta. */}
       <header className="-mx-4 mb-4 bg-primaria-600 px-4 pb-4 pt-5 sm:rounded-b-xl">
         <h1 className="mb-3 flex items-center gap-2 text-xl font-bold text-white">
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-destaque-400 text-primaria-800 shadow-sm">
-            <CarrinhoIcone className="h-6 w-6" />
-          </span>
+          <CarrinhoIcone className="h-9 w-9 shrink-0 text-destaque-400" />
           <span>
             feira <span className="font-semibold text-primaria-100">— compare preços</span>
           </span>
