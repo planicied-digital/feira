@@ -1,0 +1,20 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-10-29 at 05.34.10.jpeg + 05.34.11",
+  "estabelecimento": {"nome_raw": "São Jorge Supermercado", "endereco_raw": "Loja 1: Av. Carlos Pereira de Melo, 3510 - Caranã | Loja 2: Av. Centenário, 1491 - Centenário", "rede": null},
+  "validade": {"tipo_validade": "data_definida", "inicio": "2026-10-29", "fim": "2026-10-30"},
+  "extraido_em": "2026-10-29T21:30:00-04:00",
+  "itens": [
+    {"nome_raw": "Cerveja Budweiser American Lager Lata 350ml", "marca": "Budweiser", "categoria_sugerida": "cerveja", "quantidade": 350, "unidade": "ml", "preco": 3.69, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Energético Red Bull 250ml", "marca": "Red Bull", "categoria_sugerida": "bebidas", "quantidade": 250, "unidade": "ml", "preco": 8.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Cerveja Skol Pilsen Lata 269ml", "marca": "Skol", "categoria_sugerida": "cerveja", "quantidade": 269, "unidade": "ml", "preco": 3.09, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Refrigerante Sukita Uva Lata 350ml", "marca": "Sukita", "categoria_sugerida": "refrigerante", "quantidade": 350, "unidade": "ml", "preco": 3.39, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Refrigerante Guaraná Antarctica Tradicional Lata 350ml", "marca": "Antarctica", "categoria_sugerida": "refrigerante", "quantidade": 350, "unidade": "ml", "preco": 3.19, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Refrigerante Baré 2L", "marca": "Baré", "categoria_sugerida": "refrigerante", "quantidade": 2, "unidade": "l", "preco": 5.49, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Cerveja Antarctica Original One Way Long Neck 300ml", "marca": "Antarctica", "categoria_sugerida": "cerveja", "quantidade": 300, "unidade": "ml", "preco": 4.69, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Cerveja Corona Extra Long Neck 330ml", "marca": "Corona", "categoria_sugerida": "cerveja", "quantidade": 330, "unidade": "ml", "preco": 6.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Cerveja Brahma Duplo Malte Lata 350ml", "marca": "Brahma", "categoria_sugerida": "cerveja", "quantidade": 350, "unidade": "ml", "preco": 3.79, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Cerveja Heineken Sleek Lata 350ml", "marca": "Heineken", "categoria_sugerida": "cerveja", "quantidade": 350, "unidade": "ml", "preco": 5.49, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Whisky Jack Daniel's 1L", "marca": "Jack Daniel's", "categoria_sugerida": "bebidas", "quantidade": 1, "unidade": "l", "preco": 169.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Vodka Skarloff Flavors 900ml", "marca": "Skarloff", "categoria_sugerida": "bebidas", "quantidade": 900, "unidade": "ml", "preco": 15.49, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97}
+  ]
+}
