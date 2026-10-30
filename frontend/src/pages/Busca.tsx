@@ -6,7 +6,7 @@ import { LojaList } from "../components/LojaList";
 import { OrdenacaoChips } from "../components/OrdenacaoChips";
 import { ResultadosProdutos } from "../components/ResultadosProdutos";
 import { useBuscaProdutos } from "../hooks/useBuscaProdutos";
-import { lerOrdenacao, ordenarProdutos, type Ordenacao } from "../lib/ordenarProdutos";
+import { lerOrdenacao, ORDENACAO_PADRAO, ordenarProdutos, type Ordenacao } from "../lib/ordenarProdutos";
 
 export function Busca() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,13 +14,13 @@ export function Busca() {
   const { produtos, carregando, erro } = useBuscaProdutos(termo);
   const buscaVazia = !termo.trim();
   const ordenacao = lerOrdenacao(searchParams.get("ordem"));
-  const produtosOrdenados = useMemo(() => ordenarProdutos(produtos, ordenacao, "busca"), [produtos, ordenacao]);
+  const produtosOrdenados = useMemo(() => ordenarProdutos(produtos, ordenacao), [produtos, ordenacao]);
 
   // O termo digitado não vai pra URL a cada tecla; ao escolher a ordem, grava os dois juntos pra o
   // link compartilhado/recarregado reabrir a mesma busca na mesma ordem.
   const mudarOrdenacao = (nova: Ordenacao) => {
     const params: Record<string, string> = { q: termo };
-    if (nova !== "relevantes") params.ordem = nova;
+    if (nova !== ORDENACAO_PADRAO) params.ordem = nova;
     setSearchParams(params, { replace: true });
   };
 
