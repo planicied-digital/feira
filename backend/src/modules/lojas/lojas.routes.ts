@@ -15,14 +15,34 @@ export async function lojasRoutes(app: FastifyInstance) {
     "/lojas",
     { schema: { querystring: z.object({ ativas: z.enum(["true", "false"]).optional() }) } },
     async (request) => {
-      const [lojas, situacao] = await Promise.all([
+      const [lojas, situacao, folhetosAtuais] = await Promise.all([
         request.server.prisma.loja.findMany({
           where: request.query.ativas === "true" ? { precos: { some: filtroPrecoAtivo() } } : undefined,
           orderBy: { nomeRaw: "asc" },
         }),
         situacaoPanfletos(),
+        // Panfletos com alguma oferta valendo agora — a tela inicial oferece o original pra ver/baixar
+        // (as fotos são ligadas pelo arquivoJson, ver scripts/publicar-panfletos.mjs).
+        request.server.prisma.folheto.findMany({
+          where: { precos: { some: filtroPrecoAtivo() } },
+          select: { id: true, lojaId: true, arquivoJson: true, tipoValidade: true, validadeFim: true },
+          orderBy: { extraidoEm: "desc" },
+        }),
       ]);
-      return lojas.map((loja) => ({ ...loja, ...situacao(loja.id) }));
+      return lojas.map((loja) => ({
+        ...loja,
+        ...situacao(loja.id),
+        panfletosAtuais: folhetosAtuais
+          .filter((f) => f.lojaId === loja.id)
+          .map((f) => ({
+            id: f.id,
+            arquivoJson: f.arquivoJson,
+            tipoValidade: f.tipoValidade,
+            // Só a data, como no resto da API — o ISO completo (meia-noite UTC) vira o dia anterior
+            // quando o navegador converte pro fuso de Boa Vista.
+            validadeFim: f.validadeFim?.toISOString().slice(0, 10) ?? null,
+          })),
+      }));
     },
   );
 

@@ -37,10 +37,18 @@ export interface SituacaoPanfleto {
   panfletoValidoAte: string | null;
 }
 
+export interface PanfletoAtual {
+  id: string;
+  arquivoJson: string | null;
+  tipoValidade: TipoValidade;
+  validadeFim: string | null;
+}
+
 export interface Loja extends SituacaoPanfleto {
   id: string;
   nomeRaw: string;
   enderecoRaw: string | null;
+  panfletosAtuais: PanfletoAtual[];
 }
 
 export interface PromocaoLoja {
@@ -182,6 +190,19 @@ export function listarProdutosPorCategoria(slug: string): Promise<ProdutoComPrec
 
 export function listarLojas(opcoes?: { apenasComPanfletoAtual?: boolean }): Promise<Loja[]> {
   return requisitar(opcoes?.apenasComPanfletoAtual ? `/lojas?ativas=true` : `/lojas`);
+}
+
+// Fotos dos panfletos publicadas como arquivo estático (scripts/publicar-panfletos.mjs): nome do
+// JSON do panfleto → páginas, servidas em panfletos/<nome sem .json>/<página>.
+export type ManifestoPanfletos = Record<string, string[]>;
+
+export async function carregarManifestoPanfletos(): Promise<ManifestoPanfletos> {
+  const resposta = await fetch(`${import.meta.env.BASE_URL}panfletos/manifesto.json`);
+  return resposta.ok ? resposta.json() : {};
+}
+
+export function urlPaginaPanfleto(arquivoJson: string, pagina: string): string {
+  return `${import.meta.env.BASE_URL}panfletos/${arquivoJson.replace(/\.json$/, "")}/${pagina}`;
 }
 
 export function listarPromocoesPorLoja(id: string): Promise<PromocaoLoja[]> {
