@@ -1,5 +1,6 @@
 import { TipoValidade } from "@prisma/client";
 import { prisma } from "../../lib/prisma-client.js";
+import { hojeEmBoaVista } from "../../lib/data-boa-vista.js";
 import { normalizarNome } from "../normalizacao/normalizar-nome.js";
 
 // "enquanto durar o estoque" não tem data de fim — sem isso, uma promoção assim ficaria visível
@@ -28,8 +29,7 @@ export interface ProdutoComPrecos {
 }
 
 export function filtroPrecoAtivo() {
-  const hoje = new Date();
-  hoje.setUTCHours(0, 0, 0, 0);
+  const hoje = hojeEmBoaVista();
 
   const corteEnquantoEstoque = new Date();
   corteEnquantoEstoque.setDate(corteEnquantoEstoque.getDate() - DIAS_LIMITE_ENQUANTO_ESTOQUE);
