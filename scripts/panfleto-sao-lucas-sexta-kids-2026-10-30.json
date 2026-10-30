@@ -1,0 +1,15 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-10-30 at 07.18.12.jpeg + 07.18.12 (1) + 07.18.13",
+  "estabelecimento": {"nome_raw": "São Lucas Supermercado", "endereco_raw": "Rua Pedro Aldemar Bantim, 887 - Dr. Silvio Botelho", "rede": null},
+  "validade": {"tipo_validade": "data_definida", "inicio": "2026-10-30", "fim": "2026-10-30"},
+  "extraido_em": "2026-10-30T10:00:00-04:00",
+  "itens": [
+    {"nome_raw": "Aveia em Flocos Nestlé 170g", "marca": "Nestlé", "categoria_sugerida": "mercearia", "quantidade": 170, "unidade": "g", "preco": 3.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Amido de Milho Cremogema Tradicional 180g", "marca": "Maizena", "categoria_sugerida": "mercearia", "quantidade": 180, "unidade": "g", "preco": 5.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Amido de Milho Maizena Tradicional 200g", "marca": "Maizena", "categoria_sugerida": "mercearia", "quantidade": 200, "unidade": "g", "preco": 5.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Amido de Milho Arrozina Tradicional 180g", "marca": "Maizena", "categoria_sugerida": "mercearia", "quantidade": 180, "unidade": "g", "preco": 5.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Cereal Infantil Mucilon Sabores Sachê 180g", "marca": "Nestlé", "categoria_sugerida": "bebe", "quantidade": 180, "unidade": "g", "preco": 5.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Leite em Pó Integral Ninho Sachê 350g", "marca": "Ninho", "categoria_sugerida": "laticinios", "quantidade": 350, "unidade": "g", "preco": 18.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Fralda-Calça MamyPoko Dia&Noite Pacote", "marca": "MamyPoko", "categoria_sugerida": "fralda", "quantidade": 1, "unidade": "un", "preco": 23.49, "preco_original": null, "unidade_padrao": "un", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97}
+  ]
+}
