@@ -5,7 +5,7 @@ import { OrdenacaoChips } from "../components/OrdenacaoChips";
 import { ResultadosProdutos } from "../components/ResultadosProdutos";
 import { ResultadosPorLoja } from "../components/ResultadosPorLoja";
 import { listarCategorias, listarProdutosPorCategoria, type Categoria, type ProdutoComPrecos } from "../lib/api";
-import { lerOrdenacao, ordenarProdutos, type Ordenacao } from "../lib/ordenarProdutos";
+import { lerOrdenacao, ORDENACAO_PADRAO, ordenarProdutos, type Ordenacao } from "../lib/ordenarProdutos";
 
 type Visualizacao = "produto" | "supermercado";
 
@@ -18,10 +18,10 @@ export function CategoriaPagina() {
   const [visualizacao, setVisualizacao] = useState<Visualizacao>("produto");
   const [searchParams, setSearchParams] = useSearchParams();
   const ordenacao = lerOrdenacao(searchParams.get("ordem"));
-  const produtosOrdenados = useMemo(() => ordenarProdutos(produtos, ordenacao, "categoria"), [produtos, ordenacao]);
+  const produtosOrdenados = useMemo(() => ordenarProdutos(produtos, ordenacao), [produtos, ordenacao]);
 
   const mudarOrdenacao = (nova: Ordenacao) =>
-    setSearchParams(nova === "relevantes" ? {} : { ordem: nova }, { replace: true });
+    setSearchParams(nova === ORDENACAO_PADRAO ? {} : { ordem: nova }, { replace: true });
 
   useEffect(() => {
     if (!slug) return;
