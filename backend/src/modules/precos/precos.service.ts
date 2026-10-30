@@ -248,6 +248,31 @@ export async function listarPromocoesPorLoja(lojaId: string): Promise<PromocaoLo
 // Mesma regra de permanência do resto do app: uma promoção some quando vence (data_definida) ou
 // fica velha demais sem confirmação (enquanto_durar_estoque). Não é um histórico de preços
 // passados — é a lista de ofertas ainda válidas para esse produto, uma por loja.
+export interface ProdutoResumo {
+  produtoCanonicoId: string;
+  nomeCanonico: string;
+  marca: string | null;
+  categoria: { nome: string; slug: string; icone: string | null };
+  unidadePadrao: string;
+}
+
+// Dados do produto em si, sem preços — a página "Onde encontrar" precisa do nome mesmo quando o
+// produto não tem nenhuma oferta ativa.
+export async function buscarProduto(produtoCanonicoId: string): Promise<ProdutoResumo | null> {
+  const produto = await prisma.produtoCanonico.findUnique({
+    where: { id: produtoCanonicoId },
+    include: { categoria: true },
+  });
+  if (!produto) return null;
+  return {
+    produtoCanonicoId: produto.id,
+    nomeCanonico: produto.nomeCanonico,
+    marca: produto.marca,
+    categoria: { nome: produto.categoria.nome, slug: produto.categoria.slug, icone: produto.categoria.icone },
+    unidadePadrao: produto.unidadePadrao,
+  };
+}
+
 export async function listarHistoricoProduto(produtoCanonicoId: string): Promise<PrecoResultado[]> {
   const precos = await prisma.preco.findMany({
     where: { produtoCanonicoId, ...filtroPrecoAtivo() },

@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { buscarHistorico, type PrecoResultado } from "../lib/api";
+import { buscarHistorico, buscarProduto, type PrecoResultado, type ProdutoResumo } from "../lib/api";
 import { formatarMoeda } from "../lib/formatacao";
 import { SeloValidade } from "../components/SeloValidade";
 import { tempoRelativo } from "../lib/tempoRelativo";
 
 export function ProdutoDetalhe() {
   const { id } = useParams<{ id: string }>();
+  const [produto, setProduto] = useState<ProdutoResumo | null>(null);
   const [historico, setHistorico] = useState<PrecoResultado[]>([]);
   const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
     if (!id) return;
     setCarregando(true);
+    // Sem o nome a página só lista preços soltos; se ele falhar, os preços ainda aparecem.
+    buscarProduto(id).then(setProduto, () => setProduto(null));
     buscarHistorico(id)
       .then(setHistorico)
       .finally(() => setCarregando(false));
@@ -23,7 +26,12 @@ export function ProdutoDetalhe() {
       <Link to="/" className="text-sm text-emerald-700">
         ← voltar para a busca
       </Link>
-      <h1 className="mt-2 mb-4 text-lg font-bold text-gray-900">Onde encontrar</h1>
+      <p className="mt-2 text-xs font-medium uppercase tracking-wide text-gray-500">Onde encontrar</p>
+      <h1 className="text-lg font-bold text-gray-900">
+        {produto ? `${produto.categoria.icone ?? ""} ${produto.nomeCanonico}`.trim() : "Produto"}
+      </h1>
+      {produto?.marca && <p className="text-sm text-gray-500">{produto.marca}</p>}
+      <div className="mb-4" />
 
       {carregando && <p className="text-sm text-gray-500">Carregando...</p>}
 

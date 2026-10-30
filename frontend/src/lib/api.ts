@@ -178,6 +178,18 @@ export function buscarProdutos(termo: string): Promise<ProdutoComPrecos[]> {
   return requisitar(`/produtos/busca?q=${encodeURIComponent(termo)}`);
 }
 
+export interface ProdutoResumo {
+  produtoCanonicoId: string;
+  nomeCanonico: string;
+  marca: string | null;
+  categoria: { nome: string; slug: string; icone: string | null };
+  unidadePadrao: UnidadePadrao;
+}
+
+export function buscarProduto(produtoCanonicoId: string): Promise<ProdutoResumo> {
+  return requisitar(`/produtos/${encodeURIComponent(produtoCanonicoId)}`);
+}
+
 export function buscarHistorico(produtoCanonicoId: string): Promise<PrecoResultado[]> {
   return requisitar(`/produtos/${produtoCanonicoId}/historico`);
 }
