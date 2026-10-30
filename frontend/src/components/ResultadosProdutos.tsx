@@ -19,7 +19,7 @@ export function ResultadosProdutos({ produtos }: ResultadosProdutosProps) {
         <section key={produto.produtoCanonicoId}>
           <ResumoProdutoCard produto={produto} />
           {!temPrecoComDataDefinida(produto.precos) && (
-            <p className="mb-2 mt-2 text-xs text-amber-700">
+            <p className="mb-2 mt-2 text-xs text-destaque-700">
               Nenhuma promoção com data definida — confira a atualização em cada card abaixo.
             </p>
           )}

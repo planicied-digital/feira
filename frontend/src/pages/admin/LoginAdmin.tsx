@@ -32,13 +32,13 @@ export function LoginAdmin({ aoEntrar }: { aoEntrar: () => void }) {
         autoFocus
         value={senha}
         onChange={(e) => setSenha(e.target.value)}
-        className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:border-emerald-600 focus:outline-none"
+        className="w-full rounded border border-gray-300 px-3 py-2 text-sm focus:border-primaria-600 focus:outline-none"
       />
       {erro && <p className="mt-2 text-sm text-red-600">{erro}</p>}
       <button
         type="submit"
         disabled={enviando || senha.length === 0}
-        className="mt-3 w-full rounded bg-emerald-600 px-3 py-2 text-sm font-medium text-white disabled:opacity-50"
+        className="mt-3 w-full rounded bg-primaria-600 px-3 py-2 text-sm font-medium text-white disabled:opacity-50"
       >
         {enviando ? "Entrando..." : "Entrar"}
       </button>

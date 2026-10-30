@@ -94,7 +94,7 @@ export function RevisaoPendentes() {
             <div className="mt-2 flex gap-2">
               <button
                 onClick={() => tratar(s.id, "aceitar")}
-                className="rounded bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white"
+                className="rounded bg-primaria-600 px-3 py-1.5 text-xs font-medium text-white"
               >
                 É o mesmo produto
               </button>

@@ -25,22 +25,28 @@ export function Busca() {
   };
 
   return (
-    <div className="mx-auto max-w-md px-4 py-6">
-      <h1 className="mb-4 text-xl font-bold text-gray-900">feira — compare preços</h1>
-      <BuscaInput valor={termo} aoMudar={setTermo} />
+    <div className="mx-auto max-w-md px-4 pb-6">
+      {/* Faixa azul do topo com a busca dentro — a cara de "app de varejo" da paleta. */}
+      <header className="-mx-4 mb-4 bg-primaria-600 px-4 pb-4 pt-5 sm:rounded-b-xl">
+        <h1 className="mb-3 text-xl font-bold text-white">
+          feira<span className="text-destaque-400"> ✦ </span>
+          <span className="font-semibold text-primaria-100">compare preços</span>
+        </h1>
+        <BuscaInput valor={termo} aoMudar={setTermo} />
+      </header>
 
       {buscaVazia && (
         <>
           <Link
             to="/lista-compras"
-            className="mt-4 block rounded-lg bg-blue-50 p-3 text-sm font-medium text-blue-700"
+            className="mt-4 block rounded-lg bg-primaria-50 p-3 text-sm font-medium text-primaria-700"
           >
             🛒 Montar lista de compras e comparar mercados
           </Link>
-          <Link to="/ranking" className="mt-2 block rounded-lg bg-amber-50 p-3 text-sm font-medium text-amber-800">
+          <Link to="/ranking" className="mt-2 block rounded-lg bg-destaque-50 p-3 text-sm font-medium text-destaque-800">
             🏆 Ranking: qual mercado costuma ser mais barato
           </Link>
-          <Link to="/comparar" className="mt-2 block rounded-lg bg-violet-50 p-3 text-sm font-medium text-violet-800">
+          <Link to="/comparar" className="mt-2 block rounded-lg bg-marinho-50 p-3 text-sm font-medium text-marinho-800">
             ⚖️ Comparar dois mercados lado a lado
           </Link>
           <CategoriaGrid />

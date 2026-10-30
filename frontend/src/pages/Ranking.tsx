@@ -19,7 +19,7 @@ function LinhaRanking({ item, posicao }: { item: RankingLoja; posicao: number | 
         <p className="shrink-0 text-sm font-bold text-gray-900">{item.percentual.toLocaleString("pt-BR")}%</p>
       </div>
       <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-gray-100">
-        <div className="h-full rounded-full bg-emerald-500" style={{ width: `${item.percentual}%` }} />
+        <div className="h-full rounded-full bg-primaria-500" style={{ width: `${item.percentual}%` }} />
       </div>
       <div className="mt-1 flex flex-wrap items-center justify-between gap-1">
         <p className="text-xs text-gray-500">
@@ -48,7 +48,7 @@ export function Ranking() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-6">
-      <Link to="/" className="text-sm text-emerald-700">
+      <Link to="/" className="text-sm text-primaria-700">
         ← voltar
       </Link>
       <h1 className="mt-2 text-lg font-bold text-gray-900">🏆 Ranking de mercados</h1>
@@ -63,7 +63,7 @@ export function Ranking() {
             key={j}
             onClick={() => setDias(j)}
             className={`rounded-full px-3 py-1 text-xs font-medium ${
-              dias === j ? "bg-emerald-600 text-white" : "bg-gray-100 text-gray-700"
+              dias === j ? "bg-primaria-600 text-white" : "bg-gray-100 text-gray-700"
             }`}
           >
             {j === 365 ? "último ano" : `${j} dias`}
@@ -81,7 +81,7 @@ export function Ranking() {
 
       {!carregando && ranking && ranking.comparacoes > 0 && (
         <>
-          <p className="mt-4 rounded-lg bg-amber-50 p-2 text-xs text-amber-800">
+          <p className="mt-4 rounded-lg bg-destaque-50 p-2 text-xs text-destaque-800">
             Baseado em {ranking.comparacoes} {ranking.comparacoes === 1 ? "comparação" : "comparações"} de{" "}
             {ranking.produtos} {ranking.produtos === 1 ? "produto" : "produtos"}. Com poucos panfletos por mercado, a
             posição pode mudar bastante a cada nova importação.
