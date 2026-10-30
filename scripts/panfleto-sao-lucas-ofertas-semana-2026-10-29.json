@@ -1,0 +1,27 @@
+{
+  "arquivo_origem": "WhatsApp Image 2026-10-30 at 07.18.09.jpeg + 07.18.10 + 07.18.11",
+  "estabelecimento": {"nome_raw": "São Lucas Supermercado", "endereco_raw": "Rua Pedro Aldemar Bantim, 887 - Dr. Silvio Botelho", "rede": null},
+  "validade": {"tipo_validade": "data_definida", "inicio": "2026-10-29", "fim": "2026-11-02"},
+  "extraido_em": "2026-10-30T10:00:00-04:00",
+  "itens": [
+    {"nome_raw": "Linguiça Calabresa Seara KG", "marca": "Seara", "categoria_sugerida": "carnes", "quantidade": 1, "unidade": "kg", "preco": 18.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Arroz Branco Agulhinha Faccio 1kg", "marca": "Faccio", "categoria_sugerida": "arroz", "quantidade": 1, "unidade": "kg", "preco": 3.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Macarrão Espaguete Bonsabor 400g", "marca": "Bonsabor", "categoria_sugerida": "macarrao", "quantidade": 400, "unidade": "g", "preco": 2.19, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Açúcar Cristal Itamarati 1kg", "marca": "Itamarati", "categoria_sugerida": "acucar", "quantidade": 1, "unidade": "kg", "preco": 2.95, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Café em Pó Betania Tradicional 250g", "marca": "Betania", "categoria_sugerida": "cafe", "quantidade": 250, "unidade": "g", "preco": 11.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Composto Lácteo DoBon 400g", "marca": "DoBon", "categoria_sugerida": "laticinios", "quantidade": 400, "unidade": "g", "preco": 11.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Achocolatado em Pó Nescau 350g", "marca": "Nescau", "categoria_sugerida": "mercearia", "quantidade": 350, "unidade": "g", "preco": 11.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Biscoito Club Social Original 144g", "marca": "Club Social", "categoria_sugerida": "biscoito", "quantidade": 144, "unidade": "g", "preco": 4.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Nissin Cup Noodles Sabores 69g", "marca": "Nissin", "categoria_sugerida": "mercearia", "quantidade": 69, "unidade": "g", "preco": 4.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Milho Verde Stella d'Oro Lata 170g", "marca": "Stella d'Oro", "categoria_sugerida": "enlatados", "quantidade": 170, "unidade": "g", "preco": 2.65, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Creme de Leite Nestlé Leve 200g", "marca": "Nestlé", "categoria_sugerida": "laticinios", "quantidade": 200, "unidade": "g", "preco": 3.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Chocolate Garoto Caixa 220g", "marca": "Garoto", "categoria_sugerida": "doce", "quantidade": 220, "unidade": "g", "preco": 11.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Catchup Palmeiron Tradicional 300g", "marca": "Palmeiron", "categoria_sugerida": "molho", "quantidade": 300, "unidade": "g", "preco": 3.49, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Sabonete Flor de Ypê 85g Fragrâncias", "marca": "Ypê", "categoria_sugerida": "sabonete", "quantidade": 85, "unidade": "g", "preco": 1.99, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Sabão em Pó Ala Sachê 400g Fragrâncias", "marca": "Ala", "categoria_sugerida": "sabao", "quantidade": 400, "unidade": "g", "preco": 3.19, "preco_original": null, "unidade_padrao": "kg", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Amaciante Hiper Plus 2L Fragrâncias", "marca": "Hiper Plus", "categoria_sugerida": "limpeza", "quantidade": 2, "unidade": "l", "preco": 4.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Amaciante Concentrado Downy 500ml Fragrâncias", "marca": "Downy", "categoria_sugerida": "limpeza", "quantidade": 500, "unidade": "ml", "preco": 9.99, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Água Sanitária Brilux 1L", "marca": "Brilux", "categoria_sugerida": "limpeza", "quantidade": 1, "unidade": "l", "preco": 2.89, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97},
+    {"nome_raw": "Inseticida Aerosol Mortein Pro 360ml Fragrâncias", "marca": "Mortein", "categoria_sugerida": "limpeza", "quantidade": 360, "unidade": "ml", "preco": 12.49, "preco_original": null, "unidade_padrao": "l", "preco_por_unidade_padrao": null, "confianca_ocr": 0.97}
+  ]
+}
