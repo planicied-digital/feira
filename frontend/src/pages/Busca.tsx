@@ -29,8 +29,7 @@ export function Busca() {
       {/* Faixa azul do topo com a busca dentro — a cara de "app de varejo" da paleta. */}
       <header className="-mx-4 mb-4 bg-primaria-600 px-4 pb-4 pt-5 sm:rounded-b-xl">
         <h1 className="mb-3 text-xl font-bold text-white">
-          feira<span className="text-destaque-400"> ✦ </span>
-          <span className="font-semibold text-primaria-100">compare preços</span>
+          feira <span className="font-semibold text-primaria-100">— compare preços</span>
         </h1>
         <BuscaInput valor={termo} aoMudar={setTermo} />
       </header>
