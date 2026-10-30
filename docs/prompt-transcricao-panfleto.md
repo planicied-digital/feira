@@ -103,8 +103,17 @@ sh scripts/importar-panfletos.sh
 ```
 
 O script importa só os `panfleto-*.json` que ainda não estão no banco (pode rodar quantas vezes
-quiser). Depois é só abrir o PR com o JSON: quando ele é mergeado na `master`, o workflow
-`Deploy` roda o mesmo script na VPS, então os dados chegam lá sozinhos — sem `pg_dump`.
+quiser). Em seguida publique as fotos originais (a tela inicial oferece o panfleto pra ver/baixar):
+
+```bash
+node scripts/publicar-panfletos.mjs
+```
+
+Ele copia de `docs/panfletos/` pra `frontend/public/panfletos/` as páginas dos panfletos válidos
+hoje e apaga as dos vencidos. Precisa rodar na máquina que tem as fotos (`docs/panfletos/` não vai
+pro git). Depois é só abrir o PR com o JSON e as fotos publicadas: quando ele é mergeado na
+`master`, o workflow `Deploy` roda o mesmo script de importação na VPS e rebuilda o frontend com as
+fotos, então tudo chega lá sozinho — sem `pg_dump`.
 
 Se der erro `422`, a resposta traz a lista de itens inválidos por índice —
 corrija o JSON e reenvie (nada é gravado até o arquivo inteiro ser válido).
