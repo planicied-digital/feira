@@ -36,6 +36,12 @@ export function Busca() {
           </span>
         </h1>
         <BuscaInput valor={termo} aoMudar={setTermo} />
+        <p className="mt-3 flex items-center gap-2 text-xs text-primaria-100">
+          <span className="rounded-full bg-destaque-400 px-2 py-0.5 font-bold uppercase tracking-wide text-primaria-900">
+            Protótipo
+          </span>
+          Projeto sem fins lucrativos, em fase de testes.
+        </p>
       </header>
 
       {buscaVazia && (
